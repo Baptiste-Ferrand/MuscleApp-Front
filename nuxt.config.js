@@ -23,12 +23,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -45,6 +43,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/sentry',
 
     [
       'nuxt-i18n',
@@ -77,6 +76,16 @@ export default {
       }
     ]
   ],
+  sentry: {
+    dsn: 'https://302374220e9842c093391298145208a7@o4504773783584768.ingest.sentry.io/4504773791318016', // Enter your project's DSN.
+    // Additional Module Options.
+    config: {
+      // Optional Sentry SDK configuration.
+      // Those options are shared by both the Browser and the Server instances.
+      // Browser-only and Server-only options should go
+      // into `clientConfig` and `serverConfig` objects respectively.
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -104,6 +113,6 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {}
+
 }
