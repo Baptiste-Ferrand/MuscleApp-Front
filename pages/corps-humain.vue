@@ -37,51 +37,57 @@ export default {
       items: [
         {
           name: 'Biceps',
-          src: 'backgrounds/bg-2.jpg',
-          to: '/corps-humains/bras'
+          src: require('~/assets/img/corps_humain/biceps/Biceps.png'),
+          to: '/corps-humains/biceps'
         },
         {
           name: 'Triceps',
-          src: 'backgrounds/md.jpg',
-          to: '/corps-humains/jambes'
+          src: require('~/assets/img/corps_humain/triceps/260px-Triceps_brachii.png'),
+          to: '/corps-humains/triceps'
         },
         {
           name: 'Ishio',
           src: 'backgrounds/bg-2.jpg',
-          to: '/corps-humains/epaule'
+          to: '/corps-humains/ishio'
         },
         {
           name: 'Quadriceps',
           src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
+          to: '/corps-humains/quadriceps'
         },
         {
           name: 'Molet',
           src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
+          to: '/corps-humains/mollet'
         },
         {
           name: 'Epaule',
           src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
+          to: '/corps-humains/epaule'
         },
         {
           name: 'Dos',
+          src: require('~/assets/img/corps_humain/pec.jpg'),
+          to: '/corps-humains/dos'
+        },
+        {
+          name: 'Pec',
           src: require('~/assets/img/corps_humain/pec.jpg'),
           to: '/corps-humains/pec'
         },
         {
           name: 'Abdos',
           src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        }, {
+          to: '/corps-humains/abdos'
+        },
+        {
           name: 'Tandon',
           src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
+          to: '/corps-humains/tandon'
         }, {
           name: 'Artiulation',
           src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
+          to: '/corps-humains/articulation'
         }
       ]
     }
@@ -102,8 +108,28 @@ export default {
         case 'Quadriceps':
           this.$router.push(this.localePath(item.to))
           break
+        case 'Molet':
+          this.$router.push(this.localePath(item.to))
+          break
+        case 'Epaule':
+          this.$router.push(this.localePath(item.to))
+          break
+        case 'Dos':
+          this.$router.push(this.localePath(item.to))
+          break
+        case 'Pec':
+          this.$router.push(this.localePath(item.to))
+          break
+        case 'Abdos':
+          this.$router.push(this.localePath(item.to))
+          break
+        case 'Tandon':
+          this.$router.push(this.localePath(item.to))
+          break
+        case 'Artiulation':
+          this.$router.push(this.localePath(item.to))
+          break
         default:
-          console.log('default')
           break
       }
     }
