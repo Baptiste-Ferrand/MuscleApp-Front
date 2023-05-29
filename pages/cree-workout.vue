@@ -12,11 +12,11 @@
       />
     </v-card-title>
     <v-data-table
+      v-model:expanded="expanded"
       :headers="itemsHeaders"
       :items="items"
       :search="search"
       :single-expand="singleExpand"
-      :expanded.sync="expanded"
       item-key="name"
       show-expand
       class="elevation-1"
