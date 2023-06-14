@@ -1,17 +1,17 @@
 <template>
-  <v-app white>
+  <v-app >
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="!clipped"
+      :clipped="true"
       fixed
       app
+      color="rgb(20,20,30)"
     >
       <v-list>
         <v-list-item
-          v-for="(item, i) in item"
+          v-for="(item, i) in items"
           :key="i"
-          :to="localePath(item.to)"
+          :to="item.to"
           router
           exact
         >
@@ -24,118 +24,66 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="!clipped"
-      fixed
-      app
-    >
+    <v-app-bar :clipped-left="true" fixed app color="rgb(20,20,30)">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>{{ $t('welcome') }}</v-toolbar-title>
+      <v-img
+        class="mx-auto"
+        max-width="80"
+        :src="img"
+      ></v-img>
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
+      <v-btn icon to="/profil">
         <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main>
+    <v-main class="background">
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <div>
-          <v-alert
-            v-model="alert"
-            dismissible
-            color="cyan"
-            border="left"
-            elevation="2"
-            colored-border
-            icon="mdi-twitter"
-          >
-            <strong>5</strong>{{ $t('notify') }}
-          </v-alert>
-        </div>
-        <v-btn @click="switchTheme">
-          Switch
-        </v-btn>
-        <lang-button />
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script>
-
 export default {
-
   name: 'DefaultLayout',
-  data () {
+  data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      statuscookie: true,
-      miniVariant: false,
+      img: require('../assets/img/logo.png'),
+      drawer: true,
+      fixed: true,
+      items: [
+        {
+          icon: 'mdi-apps',
+          title: 'Welcome',
+          to: '/',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'list exos',
+          to: '/list-exos',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'corps humain',
+          to: '/corps-humain',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'cree workout',
+          to: '/cree-workout',
+        },
+      ],
       right: true,
       rightDrawer: false,
-      valrdm: 0,
-      alert: true,
-      item: []
-
+      title: 'MusculApp',
     }
   },
-  beforeMount () {
-    this.valrdm = Math.floor(Math.random() * 2)
-    if (this.valrdm === 0) {
-      this.alert = false
-    } else {
-      this.alert = true
-    }
-    this.item = [
-      {
-        icon: 'mdi-human-greeting',
-        title: this.$t('list_pages.home'),
-        to: 'index'
-      },
-      {
-        icon: 'mdi-clipboard-list',
-        title: this.$t('list_pages.list_exercises'),
-        to: 'list-exos'
-      },
-      {
-        icon: 'mdi-human-edit',
-        title: this.$t('list_pages.human_body'),
-        to: 'corps-humain'
-      },
-      {
-        icon: 'mdi-arm-flex',
-        title: this.$t('list_pages.create_workout'),
-        to: 'cree-workout'
-      }
-    ]
-  },
-
-  methods: {
-    switchTheme () {
-      this.$vuetify.theme.isDark = !this.$vuetify.theme.isDark
-    }
-
-  }
-
 }
 </script>
+
+<style>
+.background{
+  background: #0a0a14;
+}
+</style>

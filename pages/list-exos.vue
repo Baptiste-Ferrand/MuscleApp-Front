@@ -1,130 +1,154 @@
 <template>
-  <div>
-    <form>
-      <v-row>
-        <v-col
-          cols="4"
-        >
-          <v-text-field
-            v-model="nouveauMachine"
-            :label="$t('machine.create_Machine')"
-            :rules="rulesnvM"
-            counter="15"
-            :hint="$t('machine.counter_prop')"
-          />
-          <v-text-field
-            v-model="nvDescription"
-            :label="$t('machine.describe_a_Machine')"
-            counter="250"
-            :rules="rulesnvD"
-            :hint="$t('machine.counter_prop')"
-          />
+<div>
+  <v-card class="background">
+    <v-card-title>
+      List Exercices
+      <v-spacer />
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      />
+    </v-card-title>
+    <v-data-table
+      :headers="itemsHeaders"
+      :items="items"
+      :search="search"
+      :single-expand="singleExpand"
+      :expanded.sync="expanded"
+      item-key="name"
+      show-expand
+      class="elevation-1 background "
+    >
+      <template #top />
+      <template #expanded-item="{ headers, item }">
+        <td :colspan="headers.length">
+          More info about {{ item.name }}
           <v-btn
-            color="primary"
-            dark
-            :disabled="!formIsValid"
-            @click="addMachine"
+            class="pa-4 secondary text-no-wrap rounded-pill"
+            @click="OnClick(item)"
           >
-            {{ $t('machine.create_Machine') }}
+            Voir plus
           </v-btn>
-        </v-col>
-        <v-col
-          cols="4"
-        >
-          <v-card
-            class="mx-auto"
-            max-width="300"
-            tile
-          >
-            <v-list dense>
-              <v-subheader>{{ $t('machine.list_Machine') }}</v-subheader>
-              <v-list-item-group
-
-                color="primary"
-              >
-                <v-list-item
-                  v-for="item in listMachine"
-                  :key="item.id"
-                  nuxt
-                  :to="localePath({ name: 'infomachine', query: { text: item.text, id: item.id, description: item.description, icon: item.icon } })"
-                >
-                  <v-list-item-icon>
-                    <v-tooltip>
-                      <template #activator="{ on, attrs }">
-                        <v-icon
-                          v-bind="attrs"
-                          v-on="on"
-                          v-text="item.icon"
-                        />
-                      </template>
-                      <span>{{ $t('machine.icon') }}</span>
-                    </v-tooltip>
-                  </v-list-item-icon>
-                  <v-list-item-content>
-                    <v-list-item-title v-text="item.text" />
-                  </v-list-item-content>
-                  <v-list-item-content>
-                    <v-list-item-title v-text="item.description" />
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-card>
-        </v-col>
-      </v-row>
-    </form>
-  </div>
+        </td>
+      </template>
+    </v-data-table>
+  </v-card>
+</div>
 </template>
 
 <script>
-
 export default {
-  name: 'TestPage',
+  name: "ListExos",
   data () {
     return {
-      rulesnvM: [v => v.length <= 15 || 'Max 15 characters'],
-      rulesnvD: [v => v.length <= 250 || 'Max 250 characters'],
-      nouveauMachine: '',
-      nvDescription: '',
-      nvIcon: 'mdi-alarm-panel',
-      id: 1,
-      listMachine: []
+      expanded: [],
+      logo_existing: false,
+      search: '',
+      singleExpand: true,
+      itemsHeaders: [
+        {
+          text: 'Dessert (100g serving)',
+          align: 'start',
+          sortable: false,
+          value: 'name'
+        },
+        { text: 'Type', value: 'type' },
+        { text: 'Cible', value: 'cible' },
+        { text: 'Membre', value: 'membre' },
+        { text: 'Dificulter', value: 'difficult' }
+
+      ],
+      items: [
+        {
+          name: 'Barre au front',
+          type: '-',
+          membre: 'triceps',
+          difficult: 7,
+          cible: 'Long Portion'
+
+        },
+        {
+          name: 'Curl marteau',
+          type: 'biceps court',
+          membre: 'biceps',
+          difficult: 5
+
+        },
+        {
+          name: 'Eclair',
+          type: 262,
+          membre: 16.0,
+          difficult: 23
+
+        },
+        {
+          name: 'Cupcake',
+          type: 305,
+          membre: 3.7,
+          difficult: 67
+
+        },
+        {
+          name: 'Gingerbread',
+          type: 356,
+          membre: 16.0,
+          difficult: 49
+
+        },
+        {
+          name: 'Jelly bean',
+          type: 375,
+          membre: 0.0,
+          difficult: 94
+
+        },
+        {
+          name: 'Lollipop',
+          type: 392,
+          membre: 0.2,
+          difficult: 98
+        },
+        {
+          name: 'Honeycomb',
+          type: 408,
+          membre: 3.2,
+          difficult: 87
+
+        },
+        {
+          name: 'Donut',
+          type: 452,
+          membre: 25.0,
+          difficult: 51
+
+        },
+        {
+          name: 'KitKat',
+          type: 518,
+          membre: 26.0,
+          difficult: 65
+        }
+      ]
     }
   },
-
-  computed: {
-    formIsValid () {
-      return (
-        this.nouveauMachine &&
-          this.nvDescription &&
-        this.nouveauMachine.length <= 15 &&
-        this.nvDescription.length <= 250
-      )
-    }
-  },
-
-  beforeMount () {
-    this.listMachine.push({
-      id: this.id++, text: 'machine 1', description: 'description 1', icon: 'mdi-alarm-panel'
-    }, {
-      id: this.id++, text: 'machine 2', description: 'description 2', icon: 'mdi-alarm-panel'
-    }, {
-      id: this.id++, text: 'machine 3', description: 'description 3', icon: 'mdi-alarm-panel'
-    }
-    )
-  },
-
   methods: {
-    addMachine () {
-      this.listMachine.push({
-        id: this.id++, text: this.nouveauMachine, description: this.nvDescription, icon: this.nvIcon
-      })
+    OnClick (item) {
+      switch (item.name) {
+        case 'Barre au front':
+          break
+        default:
+          break
+      }
     }
   }
 }
-
 </script>
 
 <style scoped>
-
+.background{
+  background: #0a0a14;
+}
 </style>

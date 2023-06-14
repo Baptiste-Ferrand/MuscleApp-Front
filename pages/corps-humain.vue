@@ -1,106 +1,83 @@
 <template>
-  <v-card
-    max-width="1200"
-    class="mx-auto"
-  >
-    <v-container>
-      <v-item-group
-        multiple
+  <div>
+    <v-row>
+      <v-col
+        v-for="item of corps_humain"
+        :key="item.id"
+        cols="9"
+        md="3"
+        @click="gotoMuscle(item)"
       >
-        <v-row>
-          <v-col
-            v-for="(item, i) in items"
-            :key="i"
-            cols="9"
-            md="3"
-            @click="test(item)"
-          >
-            <v-item>
-              <v-img
-                :src="item.src"
-                cover
-                height="150"
-                class="text-right pa-2"
-              />
-            </v-item>
-          </v-col>
-        </v-row>
-      </v-item-group>
-    </v-container>
-  </v-card>
+        <v-card
+          max-width="344"
+        >
+          <v-img
+            :src="item.img"
+            height="200px"
+          ></v-img>
+          <v-card-title>
+            {{item.name}}
+          </v-card-title>
+          <v-card-subtitle>
+            {{item.desc}}
+          </v-card-subtitle>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
 </template>
+
 <script>
 export default {
-  name: 'Infomachine',
-  data () {
-    return {
-      items: [
-        {
-          name: 'Biceps',
-          src: 'backgrounds/bg-2.jpg',
-          to: '/corps-humains/bras'
-        },
-        {
-          name: 'Triceps',
-          src: 'backgrounds/md.jpg',
-          to: '/corps-humains/jambes'
-        },
-        {
-          name: 'Ishio',
-          src: 'backgrounds/bg-2.jpg',
-          to: '/corps-humains/epaule'
-        },
-        {
-          name: 'Quadriceps',
-          src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        },
-        {
-          name: 'Molet',
-          src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        },
-        {
-          name: 'Epaule',
-          src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        },
-        {
-          name: 'Dos',
-          src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        },
-        {
-          name: 'Abdos',
-          src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        }, {
-          name: 'Tandon',
-          src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        }, {
-          name: 'Artiulation',
-          src: require('~/assets/img/corps_humain/pec.jpg'),
-          to: '/corps-humains/pec'
-        }
+  name: 'CorpsHumain',
+  data(){
+    return{
+      corps_humain:[
+        {name: 'Biceps', img: require('../assets/img/corp-humains/biceps.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein',id: 1},
+        {name: 'Triceps', img: require('../assets/img/corp-humains/triceps.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein',id: 2},
+        {name: 'Avant Bras', img: require('../assets/img/corp-humains/avbras.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 3},
+        {name: 'Ishio', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 4},
+        {name: 'Quadriceps', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 5},
+        {name: 'Mollet', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein',  id: 6},
+        {name: 'Pec', img: require('../assets/img/corp-humains/pec.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 7},
+        {name: 'Epaule', img: require('../assets/img/corp-humains/epaule.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 8},
+        {name: 'Dos', img: require('../assets/img/corp-humains/dos.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 9},
+        {name: 'Abdos', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 10 }
       ]
     }
   },
-  methods: {
-
-    test (item) {
+  methods:{
+    gotoMuscle(item){
       switch (item.name) {
         case 'Biceps':
-          this.$router.push(this.localePath(item.to))
+          this.$router.push('/corps-humains/biceps')
           break
         case 'Triceps':
-          this.$router.push(this.localePath(item.to))
+          this.$router.push('/corps-humains/triceps')
+          break
+        case 'Avant Bras':
+          this.$router.push('/corps-humains/avant-bras')
           break
         case 'Ishio':
-          this.$router.push(this.localePath(item.to))
+          this.$router.push('/corps-humains/ishio')
           break
         case 'Quadriceps':
-          this.$router.push(this.localePath(item.to))
+          this.$router.push('/corps-humains/quadri')
+          break
+        case 'Mollet':
+          this.$router.push('/corps-humains/mollet')
+          break
+        case 'Pec':
+          this.$router.push('/corps-humains/pec')
+          break
+        case 'Epaule':
+          this.$router.push('/corps-humains/epaule')
+          break
+        case 'Dos':
+          this.$router.push('/corps-humains/dos')
+          break
+        case 'Abdos':
+          this.$router.push('/corps-humains/abdos')
           break
         default:
           console.log('default')
@@ -108,10 +85,5 @@ export default {
       }
     }
   }
-
 }
 </script>
-
-<style scoped>
-
-</style>
