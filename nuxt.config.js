@@ -1,25 +1,17 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - toto',
-    title: 'toto',
-    htmlAttrs: {
-      lang: 'en'
-    },
+    titleTemplate: '%s - app',
+    title: 'app',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -36,61 +28,45 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/sentry',
-
-    [
-      'nuxt-i18n',
-      {
-        strategy: 'prefix',
-        locales: [
-          {
-            code: 'fr',
-            name: 'Français',
-            file: 'fr.js'
-          },
-          {
-            code: 'en',
-            name: 'English',
-            file: 'en.js'
-          }
-        ],
-        lazy: true,
-        langDir: 'lang/',
-        defaultLocale: 'fr',
-        detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'i18n_redirected',
-          alwaysRedirect: true,
-          fallbackLocale: 'fr'
-        },
-        vueI18n: {
-          fallbackLocale: 'fr'
-        }
-      }
-    ]
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
   ],
-  sentry: {
-    dsn: 'https://302374220e9842c093391298145208a7@o4504773783584768.ingest.sentry.io/4504773791318016', // Enter your project's DSN.
-    // Additional Module Options.
-    config: {
-      // Optional Sentry SDK configuration.
-      // Those options are shared by both the Browser and the Server instances.
-      // Browser-only and Server-only options should go
-      // into `clientConfig` and `serverConfig` objects respectively.
-    }
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
+    baseURL: 'http://localhost:8080/',
+  },
+
+auth:{
+  redirect: {
+    login: '/login',
+    logout: '/',
+    callback: '/login'
+  },
+  strategies: {
+    local: {
+      endpoints: {
+        login: { url: 'auth/login', method: 'post', propertyName: 'access_token' },
+        user: { url: 'auth/profile', method: 'get', propertyName: '' },
+        logout: false
+      }
+    }
+  }
+},
+
+  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  pwa: {
+    manifest: {
+      lang: 'en',
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -106,13 +82,12 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+          success: colors.green.accent3,
+        },
+      },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
-
+  build: {},
 }

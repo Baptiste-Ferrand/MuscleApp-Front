@@ -17,7 +17,7 @@
           {{ data.title }}
         </h2>
         <div>
-          <span class="test"> {{ data.text }} </span> <br>
+          <span> {{ data.text }} </span> <br>
         </div>
       </div>
     </v-timeline-item>
@@ -26,64 +26,64 @@
 
 <script>
 export default {
-  name: 'Pec',
-  data () {
-    return {
-      datas: [
+  name: "Pec",
+  layout: 'corps-humain',
+  data(){
+    return{
+      datas:[
+        {
+          color: 'cyan',
+          title: 'Introduction aux pectoraux',
+          text: 'Les pectoraux, également appelés muscles pectoraux, sont un groupe de muscles situés à l\'avant de la poitrine. Ils comprennent le grand pectoral (pectoralis major) et le petit pectoral (pectoralis minor). Ces muscles jouent un rôle essentiel dans les mouvements des bras, la stabilisation de l\'épaule et la posture.\n',
+          // img: require('')
+        },
         {
           color: 'cyan',
           title: 'Muscle Grand Pectoral',
-          text: 'Le muscle grand pectoral est un muscle de la ceinture du membre thoracique. ce muscle est large, triangulaire et puissant, c\'est le plus volumineux du membre thoracique. Le grand pectoral est lié à la paroi antérieure du creux axillaire, dans un plan superficiel' +
-         '\nLe grand pectoral est divisé (en fonction des points de vue, générallement cité en 3 partie), en 4 partie: ' +
-         '\n- fibres claviculaires' +
-         '\n- fibres sternales supérieures' +
-         '\n- fibres sternales inférieures' +
-         '\n- fibres abdominales.',
-          img: require('~/assets/img/corps_humain/pec/2.jpg')
+          text: 'Les muscles pectoraux comprennent :\n' +
+            '\n' +
+            'Le grand pectoral (pectoralis major) : il est le plus grand muscle de la poitrine et est responsable de l\'adduction (rapprochement) de l\'épaule, de la flexion et de la rotation interne du bras.\n' +
+            'Le petit pectoral (pectoralis minor) : situé en dessous du grand pectoral, il est responsable de la stabilisation de l\'omoplate en la tirant vers l\'avant et vers le bas.\n',
+          // img: require('')
         },
         {
-          color: 'green',
-          title: 'Terminaison',
-          text: 'Les trois faisceaux se terminent en deux, qui s\'insèrent à la face profonde du sillon intertuberculaire, et sur la partie antéro-latérale du grand tubercule de l\'humérus, nous trouvons : ' +
-         '\n - le faisceau supérieur qui est formé des fibres claviculaires et de la moitié supérieures des fibres sternales' +
-         '\n - le faisceau inférieur qui est formé de la moitié inférieure des fibres sternales et des fibres abdominales.',
-          img: require('~/assets/img/corps_humain/pec/1.png')
+          color: 'cyan',
+          title: 'Fonctions des pectoraux',
+          text: 'Les pectoraux jouent un rôle crucial dans de nombreux mouvements des bras, tels que le mouvement d\'adduction (rapprochement) de l\'épaule, la flexion du bras et la rotation interne du bras. Ils contribuent également à la stabilité de l\'épaule en maintenant une bonne posture et en soutenant les mouvements des membres supérieurs.\n',
+          // img: require('')
         },
         {
-          color: 'pink',
-          title: 'Innervation',
-          text: 'Il est innervé par les nerfs pectoraux latéral et médial, issus de l\'anse des pectoraux (Racines C5, C6, (C7), C8 et Th1). ' +
-          '\n Les derniers travaux anatomiques ont montré que le grand pectoral était innervé par trois branches nerveuses : ' +
-          '\n - une branche supérieure qui innerve le chef claviculaire,' +
-          '\n - une branche moyenne qui innerve le chef sternal,' +
-          '\n - une branche inférieure qui innerve le chef costal.',
-          img: require('~/assets/img/corps_humain/pec/nerf-pectoraux.png')
+          color: 'cyan',
+          title: 'Innervation des pectoraux',
+          text: 'Les muscles pectoraux sont innervés par le nerf pectoral latéral, qui est une branche du plexus brachial. Ce nerf fournit la stimulation nerveuse aux muscles pectoraux, permettant leur contraction et leur coordination.\n',
+          // img: require('')
         },
         {
-          color: 'amber',
-          title: 'Action',
-          text: 'Les actions du muscle grand pectoral sont les suivantes :' +
-          '\n - il est principalement adducteur du bras au niveau de l\'épaule,' +
-          '\n - Il est aussi rotateur médial (anciennement : interne) de l\'humérus,' +
-          '\n - sa partie claviculaire aide à l\'antépulsion (flexion) du bras ainsi qu\'à l\'adduction au-delà de la ligne médiane (ligne passant par l\'axe du corps),' +
-          '\n - sa partie sternale, avec les muscles grand dorsal et grand rond, étend l\'humérus fléchi du côté du tronc lors de l\'opposition d\'une résistance,' +
-          '\n - il est auxiliaire dans la respiration forcée (augmentation du volume thoracique)',
-          img: require('~/assets/img/corps_humain/pec/action.gif')
+          color: 'cyan',
+          title: 'Utilité dans le sport',
+          text: 'Les pectoraux sont importants dans de nombreux sports qui impliquent des mouvements des membres supérieurs, tels que l\'haltérophilie, la natation, le tennis, le basket-ball et la gymnastique. Ils contribuent à la force, à la puissance et à la stabilité lors des mouvements des bras.\n',
+          // img: require('')
         },
         {
-          color: 'orange',
-          title: 'Musculation',
-          text: 'Il est courant, à défaut d\'être naturel, de développer le volume, ou la force, des pectoraux (comme de nombreux autres muscles : biceps, triceps, épaules, trapèzes…). exemple le plus courant et le plus simple : les « pompes » (ou push-ups en anglais). Un autre exercice employé couramment par les culturistes est le développé couché avec une barre. Dans cet exercice, qui est aussi un mouvement de la force athlétique, le grand pectoral intervient comme muscle moteur',
-          img: require('~/assets/img/corps_humain/pec/bench.gif')
-        }
+          color: 'cyan',
+          title: 'Risques de blessures possibles',
+          text: 'Les blessures courantes des pectoraux peuvent inclure des déchirures musculaires, des élongations, des tendinites et des douleurs liées à une surutilisation. Ces blessures peuvent être causées par des traumatismes directs, des mouvements brusques, une surcharge, une mauvaise technique d\'exercice ou un déséquilibre musculaire. Certains sports, comme l\'haltérophilie et les sports de contact, peuvent augmenter le risque de blessures aux pectoraux.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Aspect clinique',
+          text: 'En cas de blessure aux pectoraux, une évaluation clinique est nécessaire pour déterminer l\'étendue et la gravité de la blessure. Cela peut inclure un examen physique, des examens d\'imagerie médicale tels que des radiographies, des échographies ou des IRM. Le traitement peut impliquer du repos, des soins de rééducation, des médicaments anti-inflammatoires, une thérapie physique ou, dans certains cas graves, une intervention chirurgicale. Une approche clinique adaptée et une rééducation spécialisée sont essentielles pour une récupération complète et pour minimiser les complications à long terme.\n',
+          // img: require('')
+        },
       ]
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.test{
-  white-space: pre-wrap
+span{
+  white-space: pre-line;
 }
 </style>

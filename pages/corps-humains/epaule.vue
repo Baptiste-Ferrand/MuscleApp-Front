@@ -17,7 +17,7 @@
           {{ data.title }}
         </h2>
         <div>
-          <span class="test"> {{ data.text }} </span> <br>
+          <span> {{ data.text }} </span> <br>
         </div>
       </div>
     </v-timeline-item>
@@ -26,64 +26,68 @@
 
 <script>
 export default {
-  name: 'Epaule',
-  data () {
-    return {
-      datas: [
+  name: "Epaule",
+  layout: 'corps-humain',
+  data(){
+    return{
+      datas:[
         {
           color: 'cyan',
-          title: 'Muscle Grand Pectoral',
-          text: 'Le muscle grand pectoral est un muscle de la ceinture du membre thoracique. ce muscle est large, triangulaire et puissant, c\'est le plus volumineux du membre thoracique. Le grand pectoral est lié à la paroi antérieure du creux axillaire, dans un plan superficiel' +
-            '\nLe grand pectoral est divisé (en fonction des points de vue, générallement cité en 3 partie), en 4 partie: ' +
-            '\n- fibres claviculaires' +
-            '\n- fibres sternales supérieures' +
-            '\n- fibres sternales inférieures' +
-            '\n- fibres abdominales.',
-          img: require('~/assets/img/corps_humain/pec/2.jpg')
+          title: 'Introduction à l\'épaule humaine',
+          text: 'L\'épaule est une articulation synoviale de type sphéroïde qui permet une grande mobilité et une vaste gamme de mouvements. Elle est composée de l\'articulation glénohumérale entre la tête de l\'humérus et la cavité glénoïde de la scapula. Elle est soutenue par plusieurs structures, notamment l\'articulation acromioclaviculaire entre la clavicule et l\'acromion de la scapula, ainsi que l\'articulation scapulothoracique entre la scapula et la paroi thoracique.',
+          // img: require('')
         },
         {
-          color: 'green',
-          title: 'Terminaison',
-          text: 'Les trois faisceaux se terminent en deux, qui s\'insèrent à la face profonde du sillon intertuberculaire, et sur la partie antéro-latérale du grand tubercule de l\'humérus, nous trouvons : ' +
-            '\n - le faisceau supérieur qui est formé des fibres claviculaires et de la moitié supérieures des fibres sternales' +
-            '\n - le faisceau inférieur qui est formé de la moitié inférieure des fibres sternales et des fibres abdominales.',
-          img: require('~/assets/img/corps_humain/pec/1.png')
+          color: 'cyan',
+          title: 'Muscles de l\'épaule',
+          text: 'Les muscles de l\'épaule comprennent :\n' +
+                 '\n1. Deltoïde : Il se compose de trois faisceaux (antérieur, moyen et postérieur) et est responsable de l\'élévation et de l\'abduction du bras.' +
+                 '\n2. Muscles de la coiffe des rotateurs : Ils comprennent le supra-épineux, l\'infra-épineux, le petit rond et le subscapulaire. Ces muscles jouent un rôle clé dans la stabilisation de l\'articulation glénohumérale et la rotation externe et interne du bras.' +
+                 '\n3. Trapèze : Il est subdivisé en trapèze supérieur, moyen et inférieur et contribue à la rotation de l\'omoplate et à l\'élévation de l\'épaule.'+
+                 '\n4. Grand pectoral : Ce muscle situé sur la partie antérieure de la poitrine aide à fléchir, adducter et faire tourner le bras vers l\'intérieur.'
+          // img: require('')
         },
         {
-          color: 'pink',
-          title: 'Innervation',
-          text: 'Il est innervé par les nerfs pectoraux latéral et médial, issus de l\'anse des pectoraux (Racines C5, C6, (C7), C8 et Th1). ' +
-            '\n Les derniers travaux anatomiques ont montré que le grand pectoral était innervé par trois branches nerveuses : ' +
-            '\n - une branche supérieure qui innerve le chef claviculaire,' +
-            '\n - une branche moyenne qui innerve le chef sternal,' +
-            '\n - une branche inférieure qui innerve le chef costal.',
-          img: require('~/assets/img/corps_humain/pec/nerf-pectoraux.png')
+          color: 'cyan',
+          title: 'Tendons de l\'épaule',
+          text: 'Les tendons jouent un rôle crucial dans la stabilité et le mouvement de l\'épaule. Les principaux tendons de la coiffe des rotateurs sont le tendon du supra-épineux, du sous-scapulaire, de l\'infra-épineux et du petit rond. Ils s\'attachent à l\'humérus et contribuent à la stabilisation de l\'articulation glénohumérale lors des mouvements du bras.',
+          // img: require('')
         },
         {
-          color: 'amber',
-          title: 'Action',
-          text: 'Les actions du muscle grand pectoral sont les suivantes :' +
-            '\n - il est principalement adducteur du bras au niveau de l\'épaule,' +
-            '\n - Il est aussi rotateur médial (anciennement : interne) de l\'humérus,' +
-            '\n - sa partie claviculaire aide à l\'antépulsion (flexion) du bras ainsi qu\'à l\'adduction au-delà de la ligne médiane (ligne passant par l\'axe du corps),' +
-            '\n - sa partie sternale, avec les muscles grand dorsal et grand rond, étend l\'humérus fléchi du côté du tronc lors de l\'opposition d\'une résistance,' +
-            '\n - il est auxiliaire dans la respiration forcée (augmentation du volume thoracique)',
-          img: require('~/assets/img/corps_humain/pec/action.gif')
+          color: 'cyan',
+          title: 'Innervation de l\'épaule',
+          text: 'L\'épaule est innervée par plusieurs nerfs, notamment :\n' +
+            '1. Nerf axillaire (branche du plexus brachial) : Il innerve le muscle deltoïde et fournit la sensibilité cutanée à la peau de l\'épaule et de la partie supérieure du bras.\n' +
+            '2. Nerf supra-scapulaire (branche du plexus brachial) : Il innerve les muscles supra-épineux et infra-épineux, contribuant à la rotation externe et à l\'abduction de l\'épaule.\n' +
+            '3. Nerf subscapulaire supérieur et nerf subscapulaire inférieur (branches du plexus brachial) : Ils innervent le muscle subscapulaire, qui participe à la rotation interne de l\'épaule.\n',
+          // img: require('')
         },
         {
-          color: 'orange',
-          title: 'Musculation',
-          text: 'Il est courant, à défaut d\'être naturel, de développer le volume, ou la force, des pectoraux (comme de nombreux autres muscles : biceps, triceps, épaules, trapèzes…). exemple le plus courant et le plus simple : les « pompes » (ou push-ups en anglais). Un autre exercice employé couramment par les culturistes est le développé couché avec une barre. Dans cet exercice, qui est aussi un mouvement de la force athlétique, le grand pectoral intervient comme muscle moteur',
-          img: require('~/assets/img/corps_humain/pec/bench.gif')
+          color: 'cyan',
+          title: 'Utilité dans le sport',
+          text: 'L\'épaule est essentielle dans de nombreux sports, notamment ceux qui exigent des mouvements de lancer, de frappe ou de projection. Par exemple, dans le baseball, le lancer de javelot, le tennis ou la natation, l\'épaule est sollicitée pour générer la puissance, la stabilité et la précision nécessaires aux mouvements sportifs spécifiques.',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Risques de blessures possibles',
+          text: 'Les blessures de l\'épaule peuvent inclure des entorses, des luxations, des tendinites et des déchirures des tendons de la coiffe des rotateurs. Ces blessures peuvent être causées par une utilisation excessive, des traumatismes directs, des mouvements répétitifs ou des déséquilibres musculaires. Les sports à forte intensité et à mouvements rapides augmentent le risque de blessure à l\'épaule.',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Aspect clinique',
+          text: 'En cas de blessure à l\'épaule, une évaluation clinique approfondie est nécessaire. Cela peut inclure des tests spécifiques tels que le test de Neer, le test de Hawkins-Kennedy et le test de Jobe pour évaluer la présence de lésions de la coiffe des rotateurs. Des examens complémentaires, tels que des radiographies, des échographies ou des IRM, peuvent être utilisés pour confirmer le diagnostic et évaluer l\'étendue des lésions. Le traitement peut impliquer des approches conservatrices (repos, physiothérapie, médicaments) ou, dans les cas graves, une intervention chirurgicale pour réparer les structures lésées. Un suivi médical et une rééducation appropriée sont importants pour la récupération optimale de l\'épaule blessée.',
+          // img: require('')
         }
       ]
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.test{
-  white-space: pre-wrap
+span{
+  white-space: pre-line;
 }
 </style>

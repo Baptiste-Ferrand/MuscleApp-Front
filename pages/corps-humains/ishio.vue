@@ -17,7 +17,7 @@
           {{ data.title }}
         </h2>
         <div>
-          <span class="test"> {{ data.text }} </span> <br>
+          <span> {{ data.text }} </span> <br>
         </div>
       </div>
     </v-timeline-item>
@@ -26,61 +26,64 @@
 
 <script>
 export default {
-  name: 'Jambes',
-  data () {
-    return {
-      datas: [
+  name: "Pec",
+  layout: 'corps-humain',
+  data(){
+    return{
+      datas:[
         {
           color: 'cyan',
-          title: 'Muscle ischio-jambier',
-          text: 'Un muscle ischio-jambier appartient à un groupe musculaire de la cuisse permettant l\'extension de la hanche et la flexion du genou. Ce groupe rassemble des muscles polyarticulaires qui vont de la hanche jusqu’à l’arrière du tibia et de la fibula ' +
-          '\n Ces muscles correspondent aux muscles de la loge postérieure de la cuisse.  ' +
-          '\n Ce groupe se compose de trois muscles :  ' +
-          '\n - muscle biceps fémoral ' +
-          '\n - muscle semi-tendineux  ' +
-          '\n - muscle semi-membraneux. ',
-          img: require('~/assets/img/corps_humain/ishio/ishio.png')
+          title: 'Introduction aux ischio-jambiers',
+          text: 'Les ischio-jambiers sont un groupe de muscles situés à l\'arrière de la cuisse. Ils comprennent trois muscles principaux : le muscle biceps fémoral, le muscle semi-tendineux et le muscle semi-membraneux. Les ischio-jambiers jouent un rôle essentiel dans la flexion du genou, l\'extension de la hanche et la stabilisation du bassin.\n',
+          // img: require('')
         },
         {
-          color: 'green',
-          title: 'Insertions des ischio-jambiers',
-          text: 'Muscle biceps fémoral est composé par deux chefs. Le chef long (caput longum) naît par un tendon sur la face postérieure de la tubérosité ischiatique, Le chef court, quant à lui, naît par des fibres musculaires sur la moitié distale de la lèvre latérale de la ligne âpre' +
-           '\nLes deux chefs se rejoignent pour se fixer sur la tête de la fibula et par des expansions sur le condyle latéral du tibia' +
-           '\nMuscle semi-tendineux, le plus interne au niveau du creux poplité. Il naît sur la tubérosité ischiatique pour se terminer sur la face supérieure et médiale du tibia. Il appartient au groupe de la patte d\'oie' +
-           '\nMuscle semi-membraneux, saille beaucoup moins que le demi tendineux, et se trouve en dehors de lui, en arrière et en dehors du condyle médial.',
-          img: require('~/assets/img/corps_humain/ishio/shema_ishio.png')
+          color: 'cyan',
+          title: 'Muscles ischio-jambiers',
+          text: 'Les muscles ischio-jambiers comprennent :\n' +
+            '- Le muscle biceps fémoral : il est situé sur la partie externe de la cuisse. Il est composé de deux faisceaux, le faisceau long et le faisceau court. Le muscle biceps fémoral contribue à la flexion du genou et à l\'extension de la hanche.\n' +
+            '- Le muscle semi-tendineux : il est situé à l\'intérieur de la cuisse, médialement par rapport au muscle biceps fémoral. Il participe à la flexion du genou et à l\'extension de la hanche.\n' +
+            '- Le muscle semi-membraneux : il est également situé à l\'intérieur de la cuisse, médialement par rapport au muscle semi-tendineux. Il joue un rôle dans la flexion du genou, l\'extension de la hanche et la stabilisation du bassin.\n',
+          // img: require('')
         },
         {
-          color: 'pink',
-          title: 'Innervation / Pathologies',
-          text: 'Tous ces muscles sont innervés par le nerf ischiatique . Ses racines métamériques sont L4-L5 et S1-S2-S3. ' +
-           '\nCe groupe musculaire est l\'un des plus touchés par les accidents musculaires des sportifs, dont le plus grave est la déchirure musculaire. Une étude scandinave a par exemple montré que les ischio-jambiers sont impliqués, dans cette région, dans 11 % des blessures dans la course à pied,',
-          img: require('~/assets/img/corps_humain/ishio/nerf.jpg')
+          color: 'cyan',
+          title: 'Fonctions des ischio-jambiers',
+          text: 'Les ischio-jambiers sont principalement responsables de la flexion du genou, c\'est-à-dire de la réduction de l\'angle entre la jambe et la cuisse. Ils jouent également un rôle dans l\'extension de la hanche, la rotation interne du genou et la stabilisation du bassin lors des mouvements des membres inférieurs.\n',
+          // img: require('')
         },
         {
-          color: 'amber',
-          title: 'Fonction',
-          text: 'Les muscles ischio-jambiers sont composés de plusieurs parties qui ont pour action principale d\'entrainer le genou en flexion et le fémur en extension si l\'os coxal est un point fixe :' +
-         '\n- Muscle biceps fémoral : il permet la flexion de la jambe et la rotation latérale de la jambe fléchie. Le chef long participe à l\'extension de la hanche.' +
-         '\n- Muscle semi-tendineux : il permet la flexion de la jambe. De plus, lorsque la jambe est fléchie, il est rotateur médial de la jambe et extenseur de la hanche.' +
-         '\n- Muscle semi-membraneux : ses fonctions sont identiques à celles du muscle semi-tendineux. De plus, il est tenseur de la capsule articulaire (par le ligament poplité oblique).',
-          img: require('~/assets/img/corps_humain/ishio/Femur.png')
+          color: 'cyan',
+          title: 'Innervation des ischio-jambiers',
+          text: 'Les ischio-jambiers sont innervés par le nerf sciatique, qui est le nerf le plus long et le plus épais du corps humain. Le nerf sciatique fournit la stimulation nerveuse aux muscles ischio-jambiers, permettant leur contraction et leur coordination.\n',
+          // img: require('')
         },
         {
-          color: 'orange',
-          title: 'Musculation',
-          text: 'Les ischio-jambiers interviennent comme muscles moteurs ou synergiques dans l\'exercice du soulevé de terre. Ils sont également moteurs dans le mouvement de flexion sur jambes avec le squat',
-          img: require('~/assets/img/corps_humain/ishio/squat.jpg')
-        }
+          color: 'cyan',
+          title: 'Utilité dans le sport',
+          text: 'Les ischio-jambiers sont d\'une grande importance dans de nombreux sports qui impliquent des mouvements des membres inférieurs, tels que la course à pied, le saut, le football, le rugby, l\'athlétisme et le sprint. Ils contribuent à la force et à la puissance lors des mouvements de flexion du genou, de l\'extension de la hanche et de la stabilisation du bassin.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Risques de blessures possibles',
+          text: 'Les blessures courantes des ischio-jambiers comprennent les déchirures musculaires, les élongations et les tendinites. Ces blessures peuvent être causées par des mouvements brusques, des étirements excessifs, une mauvaise technique d\'exercice, une faiblesse musculaire ouune surutilisation des ischio-jambiers. Certains sports, comme la course à pied ou le sprint, peuvent augmenter le risque de blessures aux ischio-jambiers.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Aspect clinique',
+          text: 'En cas de blessure aux ischio-jambiers, une évaluation clinique est nécessaire pour déterminer l\'étendue et la gravité de la blessure. Cela peut inclure un examen physique, des examens d\'imagerie médicale tels que des échographies ou des IRM. Le traitement peut impliquer du repos, des soins de rééducation, des médicaments anti-inflammatoires, une thérapie physique ou, dans certains cas graves, une intervention chirurgicale. Une approche clinique adaptée et une rééducation spécialisée sont essentielles pour une récupération complète et pour minimiser les complications à long terme.\n',
+          // img: require('')
+        },
       ]
     }
   }
-
-}
+};
 </script>
 
 <style scoped>
-.test{
-  white-space: pre-wrap
+span{
+  white-space: pre-line;
 }
 </style>

@@ -17,7 +17,7 @@
           {{ data.title }}
         </h2>
         <div>
-          <span class="test"> {{ data.text }} </span> <br>
+          <span> {{ data.text }} </span> <br>
         </div>
       </div>
     </v-timeline-item>
@@ -26,60 +26,64 @@
 
 <script>
 export default {
-  name: 'Triceps',
-  data () {
-    return {
-      datas: [
+  name: "Triceps",
+  layout: 'corps-humain',
+  data(){
+    return{
+      datas:[
         {
           color: 'cyan',
-          title: 'Muscle Triceps Brachial',
-          text: 'Le muscle triceps brachial est un muscle postérieur du bras. C\'est le seul muscle de la loge brachiale postérieure. ' +
-           '\nIl se divise en trois chefs : ' +
-           '\n- Le chef latéral du triceps brachial se fixe au niveau de la face postérieure de la moitié proximale de l\'humérus au-dessus du sillon du nerf radial. ' +
-           '\n- Le chef médial du triceps brachial se fixe au niveau des faces postérieure et médiale de la moitié distale de l\'humérus au-dessous du sillon du nerf radial.' +
-           '\nIl se fixe également sur la face postérieure des septums intermusculaires latéral et médial. ' +
-           '\n- Le long chef du triceps brachial se fixe sur le tubercule infraglénoïdal de la scapula et sur le labrum glénoïdal. ',
-          img: require('~/assets/img/corps_humain/triceps/triceps-exercice-musculation_480x480.jpg')
+          title: 'Introduction aux triceps',
+          text: 'Les triceps brachii, communément appelés triceps, sont un groupe de muscles situés à l\'arrière du bras supérieur. Ils sont composés de trois chefs principaux : le chef long, le chef latéral et le chef médial. Les triceps jouent un rôle essentiel dans l\'extension du coude et dans la stabilisation de l\'articulation de l\'épaule.\n',
+          // img: require('')
         },
         {
-          color: 'green',
-          title: 'Trajet / Terminaison',
-          text: 'Les trois chefs du muscle se dirigent vers le bas et se rejoignent au ventre du muscle.' +
-           '\nLe muscle triceps brachial se termine par une lame tendineuse aplatie d\'avant en arrière qui s\'insère sur la face supérieure de l\'olécrane.' +
-           '\nLes fibres musculaires inférieures du chef médial s\'insère sur les faces latérale et médiale de l\'olécrane.',
-          img: require('~/assets/img/corps_humain/triceps/Olécrâne.jpg')
+          color: 'cyan',
+          title: 'Muscles triceps brachii',
+          text: 'Les muscles triceps brachii comprennent :\n' +
+            '- Le chef long : il est le chef le plus externe du triceps et s\'étend depuis l\'omoplate jusqu\'à l\'articulation du coude. Il est principalement responsable de l\'extension du coude.\n' +
+            '- Le chef latéral : situé sur le côté externe du bras, il contribue également à l\'extension du coude.\n' +
+            '- Le chef médial : situé sur le côté interne du bras, il participe également à l\'extension du coude.\n',
+          // img: require('')
         },
         {
-          color: 'pink',
-          title: 'Innervation / Vascularisation',
-          text: 'Le muscle triceps brachial est innervé par le nerf radial (C7 et C8)' +
-           '\n Le muscle triceps brachial est irrigué par l\'artère brachiale profonde',
-          img: require('~/assets/img/corps_humain/triceps/artere_profond.png')
+          color: 'cyan',
+          title: 'Fonctions des triceps',
+          text: 'Les triceps sont principalement responsables de l\'extension du coude, c\'est-à-dire de l\'augmentation de l\'angle entre l\'avant-bras et le bras. Ils jouent également un rôle dans la stabilisation de l\'articulation de l\'épaule lors d\'activités nécessitant une force et une stabilité dans les mouvements des bras.\n',
+          // img: require('')
         },
         {
-          color: 'amber',
-          title: 'Action',
-          text: 'Les actions du muscle grand pectoral sont les suivantes :' +
-          '\n- Le muscle triceps brachial permet l\'extension du coude et la rétropulsion de l\'épaule.' +
-          '\n- Les chefs médial et latéral sont des extenseurs du coude' +
-          '\n- Le chef long est extenseur du coude en synergie avec les chefs médial et latéral. Il est également extenseur du bras en synergie avec la portion postérieure des muscles deltoïde, grand rond et grand dorsal. De plus, le chef long limite le décentrage de la tête humérale. ',
-          img: require('~/assets/img/corps_humain/triceps/260px-Triceps_brachii.png')
+          color: 'cyan',
+          title: 'Innervation des triceps',
+          text: 'Les triceps sont innervés par le nerf radial, qui est une branche du plexus brachial. Ce nerf fournit la stimulation nerveuse aux muscles triceps brachii, permettant leur contraction et leur coordination.\n',
+          // img: require('')
         },
         {
-          color: 'orange',
-          title: 'Musculation',
-          text: 'Les exercices les plus efficaces pour les triceps sont les extensions des avant-bras à la barre, couché sur un banc, le développé couché prise serrée ou encore les dips. ',
-          img: require('~/assets/img/corps_humain/triceps/Dips.png')
+          color: 'cyan',
+          title: 'Utilité dans le sport',
+          text: 'Les triceps sont importants dans de nombreux sports qui impliquent des mouvements d\'extension du coude, tels que l\'haltérophilie, le culturisme, le tennis, la natation, le basketball et les sports de combat. Ils contribuent à la force et à la puissance lors des mouvements d\'extension du coude et jouent un rôle dans les mouvements de poussée et de lancer.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Risques de blessures possibles',
+          text: 'Les blessures courantes des triceps peuvent inclure des déchirures musculaires, des élongations, des tendinites et des douleurs liées à une surutilisation. Ces blessures peuvent être causées par des mouvements brusques, des charges lourdes, une mauvaise technique d\'exercice ou une sollicitation excessive des triceps. Certains sports, comme l\'haltérophilie, le culturisme ou les sports de combat, peuvent augmenter le risque de blessures aux triceps.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Aspect clinique',
+          text: 'En cas de blessure aux triceps, une évaluation clinique est nécessaire pour déterminer l\'étendue et la gravité de la blessure. Cela peut inclure un examen physique, des examens d\'imagerie médicale tels que des échographies, des IRM ou des radiographies. Le traitement peut impliquer du repos, des soins de rééducation, des médicaments anti-inflammatoires, une thérapie physique ou, dans certains cas graves, une intervention chirurgicale. Une approche clinique adaptée et une rééducation spécialisée sont essentielles pour une récupération complète et pour minimiser les complications à long terme.\n',
+          // img: require('')
         }
       ]
     }
   }
-
-}
+};
 </script>
 
 <style scoped>
-.test{
-  white-space: pre-wrap
+span{
+  white-space: pre-line;
 }
 </style>

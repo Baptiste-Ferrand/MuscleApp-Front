@@ -17,7 +17,7 @@
           {{ data.title }}
         </h2>
         <div>
-          <span class="test"> {{ data.text }} </span> <br>
+          <span> {{ data.text }} </span> <br>
         </div>
       </div>
     </v-timeline-item>
@@ -26,61 +26,63 @@
 
 <script>
 export default {
-  name: 'Biceps',
-  data () {
-    return {
-      datas: [
+  name: "Biceps",
+  layout: 'corps-humain',
+  data(){
+    return{
+      datas:[
         {
           color: 'cyan',
-          title: 'Muscle biceps brachial',
-          text: 'Le muscle biceps brachial (ou muscle long fléchisseur de l\'avant-bras) est le muscle fusiforme du bras. Il se situe dans le plan superficiel de la loge brachiale antérieure. Il est composé de deux chefs qui sont : ' +
-            '\n \n - Le chef long du muscle biceps brachial est intra-capsulaire de l\'articulation gléno-humérale et se fixe sur le tubercule supraglénoïdal de la scapula1 ainsi que sur la partie haute du labrum glénoïdal de la scapula. ' +
-            '\n \n - Le chef court du muscle biceps brachial se fixe sur la partie latérale de l\'apex du processus coracoïde de la scapula par un tendon commun avec le muscle coraco-brachial. ',
-          img: require('~/assets/img/corps_humain/biceps/Biceps.png')
+          title: 'Introduction aux biceps',
+          text: 'Les biceps brachii, communément appelés biceps, sont un groupe de muscles situés à l\'avant du bras supérieur. Ils sont composés de deux chefs principaux : le chef long et le chef court. Les biceps jouent un rôle essentiel dans la flexion du coude, la supination de l\'avant-bras et l\'aide à certaines activités de la vie quotidienne.\n',
+          // img: require('')
         },
         {
-          color: 'green',
-          title: 'Terminaison / Innervation',
-          text: 'Le muscle biceps brachial se termine par un tendon plat qui s’insère sur la partie postérieure de la tubérosité du radius. ' +
-            '\n Le tendon libère des expansions aponévrotiques qui recouvrent le fascia antébrachial médial 2, sur la face latérale du radius.' +
-            '\n Il forme également une expansion de l\'aponévrose du muscle (lacertus fibrosus) qui cravate les tendons des muscles épicondyliens médiaux s\'achevant sur l\'ulna.' +
-            '\n Le muscle biceps brachial est innervé par le nerf musculocutané, branche terminale de la paire de racines rachidiennes cervicales C5-C6 du plexus brachial. Ce nerf est issu du faisceau latéral du plexus brachial. ',
-          img: require('~/assets/img/corps_humain/biceps/Radius.jpg')
+          color: 'cyan',
+          title: 'Muscles biceps brachii',
+          text: 'Les muscles biceps brachii comprennent :\n' +
+            '- Le chef long : il est le chef le plus externe du biceps et s\'étend depuis l\'omoplate jusqu\'à l\'articulation du coude. Il est principalement responsable de la flexion du coude.\n' +
+            '- Le chef court : il est situé à l\'intérieur du chef long et contribue également à la flexion du coude.\n',
+          // img: require('')
         },
         {
-          color: 'pink',
-          title: 'Fonction',
-          text: 'Contrairement aux croyances populaires, le « biceps », comme on l\'appelle souvent, n\'est pas que fléchisseur du coude, cette fonction étant assurée conjointement par le muscle brachial (muscle profond) et le muscle brachio-radial. ' +
-           '\n En dynamique, il est principalement supinateur, surtout lorsque le coude est fléchi, et ce grâce à son insertion sur la face postérieure de la tubérosité bicipitale du radius. Il est également fléchisseur du coude et de la scapulo-humérale2. ' +
-           '\n En statique, par sa longue portion, il participe à la stabilisation de la tête huméral et par sa courte portion à la suspension du bras',
-          img: require('~/assets/img/corps_humain/biceps/160px-Animation_triceps_biceps.gif')
+          color: 'cyan',
+          title: 'Fonctions des biceps',
+          text: 'Les biceps sont principalement responsables de la flexion du coude, c\'est-à-dire de la réduction de l\'angle entre l\'avant-bras et le bras. Ils participent également à la supination de l\'avant-bras, qui est la rotation externe de l\'avant-bras permettant la position de la paume vers le haut.\n',
+          // img: require('')
         },
         {
-          color: 'amber',
+          color: 'cyan',
+          title: 'Innervation des biceps',
+          text: 'Les biceps sont innervés par le nerf musculo-cutané, qui est une branche du plexus brachial. Ce nerf fournit la stimulation nerveuse aux muscles biceps brachii, permettant leur contraction et leur coordination.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Utilité dans le sport',
+          text: 'Les biceps sont importants dans de nombreux sports qui impliquent des mouvements de flexion du coude, tels que l\'haltérophilie, le culturisme, le tennis, le baseball, la gymnastique et le judo. Ils contribuent à la force et à la puissance lors de la manipulation d\'objets, des lancers, des mouvements de préhension et des mouvements de levage.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
+          title: 'Risques de blessures possibles',
+          text: 'Les blessures courantes des biceps peuvent inclure des déchirures musculaires, des élongations, des tendinites et des douleurs liées à une surutilisation. Ces blessures peuvent être causées par des mouvements brusques, des charges lourdes, une mauvaise technique d\'exercice ou une sollicitation excessive des biceps. Les sports qui nécessitent des mouvements de flexion répétés du coude peuvent augmenter le risque de blessures aux biceps.\n',
+          // img: require('')
+        },
+        {
+          color: 'cyan',
           title: 'Aspect clinique',
-          text: 'Les principales pathologies du biceps sont la SLAP lesion et la rupture distale du tendon du biceps brachial' +
-           '\n SLAP est l\'acronyme de Superior Labrum from Anterior to Posterior. La SLAP lesion est un arrachement du bourrelet glénoïdien supérieur. Elle se produit le plus souvent lors des mouvements de traction dans les sports de lancer' +
-           '\n La rupture distale du tendon du biceps brachial a lieu le plus souvent chez le travailleur de force ou le sportif lors de l\'utilisation de la flexion du coude contre une résistance' +
-           '\n Elle se manifeste par une douleur brutale souvent accompagnée par une sensation de claquage "en coup de fouet". La palpation du pli du coude entraîne des douleurs,',
-          img: require('~/assets/img/corps_humain/biceps/SLAP-tear-shoulder.jpg')
-        },
-        {
-          color: 'orange',
-          title: 'Musculation',
-          text: 'Il est courant de développer le volume ou la force du biceps à l\'aide d\'exercices de musculation, dont un exemple peut être la flexion du coude contre une charge.' +
-           '\n Le biceps brachial intervient comme muscle synergique dans l\'exercice du développé couché' +
-           '\n En bodybuilding, on distingue couramment deux types de biceps: les biceps court et les biceps long. Cette distinction est purement esthétique et il n y a aucune différence de fonctionnement et d’efficacité entre les deux variantes. Cependant, un biceps dit court aura un tendon plus long, ce qui est plus propice aux blessures',
-          img: require('~/assets/img/corps_humain/biceps/biceps_court_vs_long.png')
+          text: 'En cas de blessure aux biceps, une évaluation clinique est nécessaire pour déterminer l\'étendue et la gravité de la blessure. Cela peut inclure un examen physique, des examens d\'imagerie médicale tels que des échographies, des IRM ou des radiographies. Le traitement peut impliquer du repos, des soins de rééducation, des médicaments anti-inflammatoires, une thérapie physique ou, dans certains cas graves, une intervention chirurgicale. Une approche clinique adaptée et une rééducation spécialisée sont essentielles pour une récupération complète et pour minimiser les complications à long terme.\n',
+          // img: require('')
         }
       ]
     }
   }
-
-}
+};
 </script>
 
 <style scoped>
-.test{
-  white-space: pre-wrap
+span{
+  white-space: pre-line;
 }
 </style>
