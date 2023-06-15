@@ -2,38 +2,41 @@
   <div>
     <div class="card">
       <weight-card
+        :subtitle="user.first_weight.toFixed(1)"
         title="Poids Initial"
-        subtitle="60 KG"
       />
-      <weight-card
-        title="Poids Actuel"
-        subtitle="80 KG"
-      />
-      <weight-card
-        title="Poids Final"
-        subtitle="90 KG"
-      />
-      <weight-card
-        title="Objectif"
-        subtitle="PDM"
-      />
+      <weight-card subtitle="80 KG" title="Poids Actuel" />
+      <weight-card subtitle="90 KG" title="Poids Final" />
+      <weight-card subtitle="PDM" title="Objectif" />
     </div>
-    <graph-stats-weight/>
+    <graph-stats-weight />
   </div>
 </template>
 
 <script>
-import GraphStatsWeight from "~/components/GraphStatsWeight.vue";
-import WeightCard from "~/components/WeightCard.vue";
+import GraphStatsWeight from '~/components/GraphStatsWeight.vue'
+import WeightCard from '~/components/WeightCard.vue'
 
 export default {
   name: 'IndexPage',
-  components: { WeightCard, GraphStatsWeight},
+  components: { WeightCard, GraphStatsWeight },
+  data() {
+    return {
+      user: {
+        first_weight: 0,
+      },
+    }
+  },
+  async fetch() {
+    await this.$axios.get('weight/initial').then((response) => {
+      this.user.first_weight = response.data.value
+    })
+  },
 }
 </script>
 
 <style scoped>
-.card{
+.card {
   display: flex;
   margin-left: 25px;
   align-items: center;
