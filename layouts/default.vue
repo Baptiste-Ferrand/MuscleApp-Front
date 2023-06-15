@@ -1,19 +1,19 @@
 <template>
-  <v-app >
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :clipped="true"
-      fixed
       app
       color="rgb(20,20,30)"
+      fixed
     >
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
-          router
           exact
+          router
         >
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -24,13 +24,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="true" fixed app color="rgb(20,20,30)">
+    <v-app-bar :clipped-left="true" app color="rgb(20,20,30)" fixed>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-img
-        class="mx-auto"
-        max-width="80"
-        :src="img"
-      ></v-img>
+      <v-img :src="img" class="mx-auto" max-width="80"></v-img>
       <v-spacer />
       <v-btn icon to="/profil">
         <v-icon>mdi-account</v-icon>
@@ -83,7 +79,7 @@ export default {
 </script>
 
 <style>
-.background{
+.background {
   background: #0a0a14;
 }
 </style>
