@@ -114,7 +114,10 @@ export default {
               'Content-Type': 'multipart/form-data',
             },
           })
-          .then(this.$router.push('/'))
+          .then((response) => {
+            console.log(response)
+            this.$router.push('/')
+          })
       } catch (e) {
         this.error = true
         console.log(e)
