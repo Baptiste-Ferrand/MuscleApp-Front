@@ -139,26 +139,32 @@ export default {
         value: parseInt(this.user.actual_weight),
       }
       try {
-        await this.$axios.post('weight', data).then((response) => {
-          console.log(response)
-        })
+        await this.$axios.post('weight', data)
       } catch (e) {
         console.log(e)
       }
     },
-    gotoLogin() {
+    async gotoLogin() {
+      await this.$auth.logout()
       this.$router.push('/login')
     },
     async updateProfil() {
       try {
-        const data = {
+        const user = {
           name: this.user.name,
           surname: this.user.surname,
           username: this.user.username,
           password: this.user.password,
           email: this.user.email,
         }
-        await this.$axios.put('user/' + this.user.id, data)
+        const objectif = {
+          title: this.user.objectif,
+          weight: parseInt(this.user.last_weight),
+          description: '',
+          date: 0,
+        }
+        await this.$axios.put('user/' + this.user.id, user)
+        await this.$axios.put('objective/1', objectif)
       } catch (e) {
         console.log(e)
       }

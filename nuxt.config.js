@@ -55,15 +55,16 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'auth/login', method: 'post', propertyName: 'token' },
-          user: { url: '/user', method: 'get', propertyName: 'user' },
+          login: {
+            url: 'auth/login',
+            method: 'post',
+            propertyName: 'token',
+          },
+          user: { url: '/user', method: 'get', propertyName: '' },
+          tokenRequired: true,
+          tokenType: 'Bearer',
         },
-        tokenRequired: true,
-        tokenType: 'Bearer',
       },
-    },
-    router: {
-      middleware: ['auth'],
     },
   },
 
