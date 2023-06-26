@@ -10,16 +10,19 @@
       <weight-card subtitle="PDM" title="Objectif" />
     </div>
     <graph-stats-weight />
+    <video-player src="https://www.youtube.com/watch?v=IzDbhbwrd_0" />
   </div>
 </template>
 
 <script>
+import VideoPlayer from 'nuxt-video-player'
 import GraphStatsWeight from '~/components/GraphStatsWeight.vue'
 import WeightCard from '~/components/WeightCard.vue'
 
+require('nuxt-video-player/src/assets/css/main.css')
 export default {
   name: 'IndexPage',
-  components: { WeightCard, GraphStatsWeight },
+  components: { WeightCard, GraphStatsWeight, VideoPlayer },
   data() {
     return {
       user: {
