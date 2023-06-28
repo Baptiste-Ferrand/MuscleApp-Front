@@ -95,6 +95,7 @@ export default {
   name: 'Profil',
   data() {
     return {
+      objectif_id: 0,
       user: {
         id: 0,
         name: '',
@@ -127,9 +128,11 @@ export default {
     await this.$axios.get('weight/initial').then((response) => {
       this.user.first_weight = response.data.value
     })
+
     await this.$axios.get('objective').then((response) => {
       this.user.objectif = response.data[0].title
       this.user.last_weight = response.data[0].weight
+      this.objectif_id = response.data[0].id
     })
   },
   methods: {
@@ -163,8 +166,13 @@ export default {
           description: 'a',
           date: 0,
         }
-        await this.$axios.put('user/' + this.user.id, user)
-        await this.$axios.post('objective', objectif)
+        await this.$axios.put('user', user)
+
+        if (this.objectif_id !== 0) {
+          await this.$axios.put('objective/' + this.objectif_id, objectif)
+        } else {
+          await this.$axios.post('objective', objectif)
+        }
       } catch (e) {
         console.log(e)
       }

@@ -14,8 +14,8 @@ export default {
       default: '',
     },
     subtitle: {
-      type: String || Number,
-      default: '',
+      type: [String, Number],
+      default: null,
     },
   },
 }
