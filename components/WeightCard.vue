@@ -1,37 +1,36 @@
 <template>
   <v-card class="card">
-    <v-card-title>{{title}}</v-card-title>
-    <v-card-subtitle>{{subtitle}}</v-card-subtitle>
+    <v-card-title>{{ title }}</v-card-title>
+    <v-card-subtitle>{{ subtitle }}</v-card-subtitle>
   </v-card>
 </template>
 
 <script>
 export default {
-  name: "WeightCard",
-  props:{
-    title:{
+  name: 'WeightCard',
+  props: {
+    title: {
       type: String,
-      default: ''
+      default: '',
     },
-    subtitle:{
-      type: String,
-      default: ''
-    }
-  }
-};
+    subtitle: {
+      type: String || Number,
+      default: '',
+    },
+  },
+}
 </script>
 
 <style scoped>
-v-card-subtitle{
+v-card-subtitle {
   align-content: center;
 }
-.card{
+
+.card {
   align-content: center;
-  height: 10%;
-  width: 15%;
+  height: 20%;
+  width: 25%;
   border-radius: 25px;
-  background: radial-gradient(#000000,  #2c5a57);
-
+  background: radial-gradient(#000000, #2c5a57);
 }
-
 </style>

@@ -160,11 +160,11 @@ export default {
         const objectif = {
           title: this.user.objectif,
           weight: parseInt(this.user.last_weight),
-          description: '',
+          description: 'a',
           date: 0,
         }
         await this.$axios.put('user/' + this.user.id, user)
-        await this.$axios.put('objective/1', objectif)
+        await this.$axios.post('objective', objectif)
       } catch (e) {
         console.log(e)
       }
