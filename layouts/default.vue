@@ -43,6 +43,7 @@
 <script>
 export default {
   name: 'DefaultLayout',
+  middleware: 'auth',
   data() {
     return {
       img: require('../assets/img/logo.png'),

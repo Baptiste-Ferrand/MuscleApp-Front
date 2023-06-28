@@ -19,12 +19,12 @@
       max-width="448"
       rounded="lg"
     >
-      <div class="text-subtitle-1 text-medium-emphasis">Account</div>
+      <div class="text-subtitle-1 text-medium-emphasis">Compte</div>
 
       <v-text-field
         v-model="user.email"
         density="compact"
-        placeholder="Email address"
+        label="Adress Email"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
       ></v-text-field>
@@ -32,16 +32,7 @@
       <div
         class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
       >
-        Password
-
-        <a
-          class="text-caption text-decoration-none text-blue"
-          href="#"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Forgot login password?</a
-        >
+        Mot de passe
       </div>
 
       <v-text-field
@@ -49,7 +40,7 @@
         :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
         :type="visible ? 'text' : 'password'"
         density="compact"
-        placeholder="Enter your password"
+        label="Entrer vôtre mot de passe"
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
         @click:append-inner="visible = !visible"
@@ -57,9 +48,11 @@
 
       <v-card class="mb-12" color="surface-variant" variant="tonal">
         <v-card-text class="text-medium-emphasis text-caption">
-          Warning: After 3 consecutive failed login attempts, you account will
-          be temporarily locked for three hours. If you must login now, you can
-          also click "Forgot login password?" below to reset the login password.
+          Avertissement : Après trois échecs consécutifs, votre compte sera
+          temporairement bloqué pendant trois heures. sera temporairement bloqué
+          pendant trois heures. Si vous devez vous connecter maintenant, vous
+          pouvez également cliquer sur "Mot de passe oublié" ci-dessous pour
+          réinitialiser le mot de passe.
         </v-card-text>
       </v-card>
 
@@ -71,12 +64,12 @@
         variant="tonal"
         @click="gotoHome"
       >
-        Log In
+        Se connecter
       </v-btn>
 
       <v-card-text class="text-center" @click="gotoRegister">
         <a class="text-blue text-decoration-none">
-          Sign up now
+          Créer un compte
           <v-icon icon="mdi-chevron-right"></v-icon>
         </a>
       </v-card-text>
@@ -114,22 +107,14 @@ export default {
               'Content-Type': 'multipart/form-data',
             },
           })
-          .then(this.$router.push('/'))
-      } catch (e) {
+          .then((response) => {
+            if (response) {
+              this.$router.push('/')
+            }
+          })
+      } catch {
         this.error = true
-        console.log(e)
       }
-
-      // try {
-      //   await this.$axios.post('auth/login', data).then((responce) => {
-      //     console.log(responce.data);
-      //     this.$router.push('/')
-      //   })
-      // } catch (e) {
-      //   this.error = true;
-      //   console.log('caaaca')
-      //   console.error(e)
-      // }
     },
   },
 }
