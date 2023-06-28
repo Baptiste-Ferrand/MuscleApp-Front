@@ -6,7 +6,26 @@
         <v-text-field v-model="exo.title" label="Titre Exercice"></v-text-field>
       </v-col>
       <v-col cols="12" sm="12">
-        <v-text-field v-model="exo.video" label="Vidéo Exercice"></v-text-field>
+        <v-text-field
+          v-model="exo.video"
+          hint="0-10"
+          label="Vidéo Exercice"
+        ></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="12">
+        <v-text-field
+          v-model="exo.difficult"
+          label="Difficulter Exercice (0-10)"
+        ></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="12">
+        <v-text-field
+          v-model="exo.membre"
+          label="Membre Exercice"
+        ></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="12">
+        <v-text-field v-model="exo.type" label="Type Exercice"></v-text-field>
       </v-col>
       <v-col cols="12" sm="12">
         <v-textarea
@@ -31,6 +50,9 @@ export default {
         description: '',
         image: 'null',
         video: '',
+        difficult: 0,
+        membre: '',
+        type: '',
       },
     }
   },
@@ -42,7 +64,10 @@ export default {
           .then(
             (this.exo.video = ''),
             (this.exo.title = ''),
-            (this.exo.description = '')
+            (this.exo.description = ''),
+            (this.exo.difficult = 0),
+            (this.exo.membre = ''),
+            (this.exo.type = '')
           )
       } catch (e) {
         console.log(e)
