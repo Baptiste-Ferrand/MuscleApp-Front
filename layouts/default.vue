@@ -70,6 +70,11 @@ export default {
           title: 'cree workout',
           to: '/cree-workout',
         },
+        {
+          icon: 'mdi-shield-crown',
+          title: 'Admin',
+          to: '/admin',
+        },
       ],
       right: true,
       rightDrawer: false,
