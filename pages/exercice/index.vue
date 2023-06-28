@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div>
-      <span>Exercice Name</span>
-      <span>Description de l'exercice, quelque conseil etc</span>
+    <div align="center">
+      <span class="text-h2">{{ exercice.name }}</span> <br />
+      <span>{{ exercice.description }}</span>
     </div>
     <div>
-      <video-player src="https://www.youtube.com/watch?v=XMycI9c3amg" />
+      <video-player :src="exercice.video" />
     </div>
   </div>
 </template>
@@ -16,5 +16,21 @@ import VideoPlayer from 'nuxt-video-player'
 require('nuxt-video-player/src/assets/css/main.css')
 export default {
   components: { VideoPlayer },
+  data() {
+    return {
+      exercice: {
+        name: '',
+        description: '',
+        video: '',
+      },
+    }
+  },
+  async fetch() {
+    await this.$axios.get('exercise/5').then((response) => {
+      this.exercice.name = response.data.title
+      this.exercice.description = response.data.description
+      this.exercice.video = response.data.video
+    })
+  },
 }
 </script>
