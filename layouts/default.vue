@@ -51,22 +51,22 @@ export default {
       fixed: true,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home-heart',
           title: 'Welcome',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-format-list-numbered',
           title: 'list exos',
           to: '/list-exos',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-arm-flex',
           title: 'corps humain',
           to: '/corps-humain',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-clipboard-edit',
           title: 'cree workout',
           to: '/cree-workout',
         },
