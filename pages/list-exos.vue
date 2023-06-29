@@ -43,8 +43,6 @@
 export default {
   name: 'ListExos',
   data() {
-  name: 'ListExos',
-  data() {
     return {
       expanded: [],
       search: '',
@@ -80,7 +78,6 @@ export default {
 </script>
 
 <style scoped>
-.background {
 .background {
   background: #0a0a14;
 }
