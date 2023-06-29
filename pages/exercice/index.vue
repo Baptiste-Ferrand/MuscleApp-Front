@@ -26,11 +26,13 @@ export default {
     }
   },
   async fetch() {
-    await this.$axios.get('exercise/5').then((response) => {
-      this.exercice.name = response.data.title
-      this.exercice.description = response.data.description
-      this.exercice.video = response.data.video
-    })
+    await this.$axios
+      .get('exercise/' + this.$route.query.id)
+      .then((response) => {
+        this.exercice.name = response.data.title
+        this.exercice.description = response.data.description
+        this.exercice.video = response.data.video
+      })
   },
 }
 </script>

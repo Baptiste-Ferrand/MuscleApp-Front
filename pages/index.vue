@@ -13,19 +13,16 @@
       <weight-card :subtitle="user.objectif" title="Objectif" />
     </div>
     <graph-stats-weight />
-    <video-player src="https://www.youtube.com/watch?v=IzDbhbwrd_0" />
   </div>
 </template>
 
 <script>
-import VideoPlayer from 'nuxt-video-player'
 import GraphStatsWeight from '~/components/GraphStatsWeight.vue'
 import WeightCard from '~/components/WeightCard.vue'
 
-require('nuxt-video-player/src/assets/css/main.css')
 export default {
   name: 'IndexPage',
-  components: { WeightCard, GraphStatsWeight, VideoPlayer },
+  components: { WeightCard, GraphStatsWeight },
   data() {
     return {
       user: {
