@@ -9,6 +9,21 @@
         <v-text-field v-model="exo.video" label="Vidéo Exercice"></v-text-field>
       </v-col>
       <v-col cols="12" sm="12">
+        <v-text-field
+          v-model="exo.difficulty"
+          label="Difficulter Exercice (0-10)"
+        ></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="12">
+        <v-text-field
+          v-model="exo.member"
+          label="Membre Exercice"
+        ></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="12">
+        <v-text-field v-model="exo.type" label="Type Exercice"></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="12">
         <v-textarea
           v-model="exo.description"
           label="Description Exercice"
@@ -29,20 +44,26 @@ export default {
       exo: {
         title: '',
         description: '',
-        image: 'null',
         video: '',
+        difficulty: 0,
+        member: '',
+        type: '',
       },
     }
   },
   methods: {
     async createExo() {
+      this.exo.difficulty = parseInt(this.exo.difficulty)
       try {
         await this.$axios
           .post('exercise', this.exo)
           .then(
-            (this.exo.video = ''),
             (this.exo.title = ''),
-            (this.exo.description = '')
+            (this.exo.description = ''),
+            (this.exo.video = ''),
+            (this.exo.difficulty = 0),
+            (this.exo.member = ''),
+            (this.exo.type = '')
           )
       } catch (e) {
         console.log(e)
