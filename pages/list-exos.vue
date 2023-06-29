@@ -15,20 +15,20 @@
       <v-data-table
         :expanded.sync="expanded"
         :headers="itemsHeaders"
+        :item-key="items.id"
         :items="items"
         :search="search"
         :single-expand="singleExpand"
         class="elevation-1 background"
-        item-key="name"
         show-expand
       >
         <template #top />
         <template #expanded-item="{ headers, item }">
           <td :colspan="headers.length">
-            More info about {{ item.name }}
+            {{ item.description }}
             <v-btn
               class="pa-4 secondary text-no-wrap rounded-pill"
-              @click="OnClick(item)"
+              @click="gotoExo(item)"
             >
               Voir plus
             </v-btn>
@@ -43,110 +43,44 @@
 export default {
   name: 'ListExos',
   data() {
+  name: 'ListExos',
+  data() {
     return {
       expanded: [],
-      logo_existing: false,
       search: '',
       singleExpand: true,
       itemsHeaders: [
         {
-          text: 'Dessert (100g serving)',
+          text: 'Exercices',
           align: 'start',
           sortable: false,
-          value: 'name',
+          value: 'title',
         },
-        { text: 'Type', value: 'type' },
-        { text: 'Cible', value: 'cible' },
-        { text: 'Membre', value: 'membre' },
-        { text: 'Dificulter', value: 'difficult' },
+        { text: 'Cible', value: 'type' },
+        { text: 'Membre', value: 'member' },
+        { text: 'Dificulter', value: 'difficulty' },
       ],
-      items: [
-        // {
-        //   name: 'Barre au front',
-        //   type: '-',
-        //   membre: 'triceps',
-        //   difficult: 7,
-        //   cible: 'Long Portion'
-        //
-        // },
-        // {
-        //   name: 'Curl marteau',
-        //   type: 'biceps court',
-        //   membre: 'biceps',
-        //   difficult: 5
-        //
-        // },
-        // {
-        //   name: 'Eclair',
-        //   type: 262,
-        //   membre: 16.0,
-        //   difficult: 23
-        //
-        // },
-        // {
-        //   name: 'Cupcake',
-        //   type: 305,
-        //   membre: 3.7,
-        //   difficult: 67
-        //
-        // },
-        // {
-        //   name: 'Gingerbread',
-        //   type: 356,
-        //   membre: 16.0,
-        //   difficult: 49
-        //
-        // },
-        // {
-        //   name: 'Jelly bean',
-        //   type: 375,
-        //   membre: 0.0,
-        //   difficult: 94
-        //
-        // },
-        // {
-        //   name: 'Lollipop',
-        //   type: 392,
-        //   membre: 0.2,
-        //   difficult: 98
-        // },
-        // {
-        //   name: 'Honeycomb',
-        //   type: 408,
-        //   membre: 3.2,
-        //   difficult: 87
-        //
-        // },
-        // {
-        //   name: 'Donut',
-        //   type: 452,
-        //   membre: 25.0,
-        //   difficult: 51
-        //
-        // },
-        // {
-        //   name: 'KitKat',
-        //   type: 518,
-        //   membre: 26.0,
-        //   difficult: 65
-        // }
-      ],
+      items: [],
     }
   },
+  async fetch() {
+    await this.$axios.get('exercise/some/999').then((response) => {
+      this.items = response.data
+    })
+  },
   methods: {
-    OnClick(item) {
-      switch (item.name) {
-        case 'Barre au front':
-          break
-        default:
-          break
-      }
+    gotoExo(item) {
+      this.$router.push({
+        path: '/exercice',
+        query: { id: item.id },
+      })
     },
   },
 }
 </script>
 
 <style scoped>
+.background {
 .background {
   background: #0a0a14;
 }
