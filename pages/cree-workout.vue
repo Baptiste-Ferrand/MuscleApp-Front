@@ -7,25 +7,30 @@
       label="Nom de vôtre séance"
       solo
     ></v-text-field>
+    <v-textarea
+      v-model="seance.description"
+      align="center"
+      clearable
+      label="Description de vôtre séance"
+      solo
+    />
     <div class="card-container">
       <v-card
         v-for="(item, index) of temp_exercices"
         :key="index"
         class="exo-card"
-        @click="infoExo(item)"
       >
         <v-card-title>
           <v-icon color="red" @click="deleteExo(item)">mdi-delete</v-icon>
-          {{ item.title }}
+          {{ item.name }}
         </v-card-title>
         <hr />
         <v-card-text>
-          nombre de série : {{ item.series }} <br />
-          nombre de répétition : {{ item.repetitions }} <br />
-          temps de repos: {{ item.repos }} <br />
+          nombre de série : {{ item.serie }} <br />
+          nombre de répétition : {{ item.repetition }} <br />
+          temps de repos: {{ item.rest_time }} <br />
           methode d'entrainement: {{ item.methods }}
-        </v-card-text
-        >
+        </v-card-text>
       </v-card>
     </div>
     <template>
@@ -37,10 +42,7 @@
             </v-btn>
           </template>
           <v-card>
-            <v-icon color="red" @click="dialog = false"
-            >mdi-window-close
-            </v-icon
-            >
+            <v-icon color="red" @click="cancelledExo">mdi-window-close</v-icon>
             <v-card-title>
               <span class="text-h5">Creation exercice</span>
             </v-card-title>
@@ -49,7 +51,7 @@
                 <v-row>
                   <v-col cols="12" md="4" sm="6">
                     <v-combobox
-                      v-model="temp_data_exo.title"
+                      v-model="temp_data_exo.name"
                       :items="exercice"
                       clearable
                       filled
@@ -60,13 +62,13 @@
                   </v-col>
                   <v-col cols="12" md="4" sm="3">
                     <v-text-field
-                      v-model="temp_data_exo.series"
+                      v-model="temp_data_exo.serie"
                       label="Séries"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12" md="4" sm="3">
                     <v-text-field
-                      v-model="temp_data_exo.repetitions"
+                      v-model="temp_data_exo.repetition"
                       label="Répétition"
                       persistent-hint
                       required
@@ -74,7 +76,7 @@
                   </v-col>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="temp_data_exo.repos"
+                      v-model="temp_data_exo.rest_time"
                       label="Temps Repos"
                       required
                     ></v-text-field>
@@ -106,108 +108,92 @@
 </template>
 
 <script>
-import Vue from "vue";
+import Vue from 'vue'
 
 export default {
-  name: "CreeWorkout",
+  name: 'CreeWorkout',
   data() {
     return {
       dialog: false,
-      exercice: ["barre au front", "Bench", "squat"],
+      exercice: [],
       chips: [
-        { label: "Pyramidal", value: "pyramidal" },
-        { label: "Tempo", value: "tempo" },
-        { label: "Dropset", value: "dropset" },
-        { label: "Concentrique", value: "concentrique" },
-        { label: "Excentrique", value: "excentrique" }
+        { label: 'Pyramidal', value: 'pyramidal' },
+        { label: 'Tempo', value: 'tempo' },
+        { label: 'Dropset', value: 'dropset' },
+        { label: 'Concentrique', value: 'concentrique' },
+        { label: 'Excentrique', value: 'excentrique' },
       ],
       selectedChip: null,
       last_id: 0,
       temp_data_exo: {
-        title: "",
-        series: 0,
-        repetitions: 0,
-        repos: 0,
-        methods: "",
-        id: 0
+        name: '',
+        serie: 0,
+        repetition: 0,
+        rest_time: 0,
+        method: '',
+        id: 0,
       },
-      temp_exercices: [
-        {
-          title: "Barre au front",
-          series: 4,
-          repetitions: 10,
-          repos: 1.3,
-          methods: "pyramidal",
-          id: 0
-        },
-        {
-          title: "Curl Marteau",
-          series: 4,
-          repetitions: 10,
-          repos: 1.3,
-          methods: "pyramidal",
-          id: 1
-        },
-        {
-          title: "Curl inversée",
-          series: 4,
-          repetitions: 10,
-          repos: 1.3,
-          methods: "pyramidal",
-          id: 2
-        },
-        {
-          title: "Extention triceps",
-          series: 4,
-          repetitions: 10,
-          repos: 1.3,
-          methods: "pyramidal",
-          id: 3
-        }
-      ],
-      seance: { title: "", exercices: [] }
-    };
+      temp_exercices: [],
+      seance: { title: '', description: '', exercises: [] },
+    }
   },
-  mounted() {
-    this.GetLastId();
+  async fetch() {
+    try {
+      await this.$axios.$get('exercise/some/999').then((response) => {
+        this.exercice = response.map((item) => item.title)
+      })
+    } catch (error) {
+      console.log(error)
+    }
   },
   methods: {
     cancelledExo() {
-      // clear cash
-      this.dialog = false;
-    },
-    infoExo(item) {
-      console.log(item);
+      this.temp_data_exo.rest_time = 0
+      this.temp_data_exo.repetition = 0
+      this.temp_data_exo.serie = 0
+      this.temp_data_exo.name = ''
+      this.temp_data_exo.method = ''
+      this.dialog = false
     },
     deleteExo(item) {
-      this.temp_exercices = this.temp_exercices.filter(function(list) {
-        return list.id !== item.id;
-      });
+      this.temp_exercices = this.temp_exercices.filter(function (list) {
+        return list.id !== item.id
+      })
     },
     saveExo() {
-      this.last_id++;
-      this.temp_data_exo.methods = this.selectedChip;
-      this.temp_data_exo.id = this.last_id;
+      this.last_id++
+      this.temp_data_exo.method = this.selectedChip
+      this.temp_data_exo.id = this.last_id
+      this.temp_data_exo.repetition = parseInt(this.temp_data_exo.repetition)
+      this.temp_data_exo.serie = parseInt(this.temp_data_exo.serie)
+      this.temp_data_exo.rest_time = parseFloat(this.temp_data_exo.rest_time)
       Vue.set(
         this.temp_exercices,
         this.temp_exercices.length,
         Object.assign({}, this.temp_data_exo)
-      );
-      this.dialog = false;
+      )
+      this.temp_data_exo.rest_time = 0
+      this.temp_data_exo.repetition = 0
+      this.temp_data_exo.serie = 0
+      this.temp_data_exo.name = ''
+      this.temp_data_exo.method = ''
+      this.dialog = false
     },
-    GetLastId() {
-      this.last_id = this.temp_exercices.reduce((prev, current) => {
-        return current.id > prev.id ? current : prev;
-      });
-      this.last_id = this.last_id.id;
+    async creatSeance() {
+      this.seance.exercises = this.temp_exercices
+      try {
+        await this.$axios.$post('session', this.seance)
+        this.seance.title = ''
+        this.seance.description = ''
+        this.seance.exercises = []
+        this.temp_exercices = []
+        this.last_id = 0
+      } catch (error) {
+        console.log(error)
+      }
     },
-    creatSeance() {
-      this.seance.exercices = this.temp_exercices;
-      console.log(this.seance);
-      // appelle de la route pour ajouter la seance
-    }
-  }
-};
+  },
+}
 </script>
 
 <style scoped>
