@@ -9,7 +9,7 @@
       rounded="lg"
     >
       <div align="center" class="text-subtitle-1 text-medium-emphasis">
-        Creation de Profil
+        Inscrivez-vous
       </div>
 
       <v-text-field
@@ -55,7 +55,7 @@
         :rules="nameRules"
         :type="visible ? 'text' : 'password'"
         density="compact"
-        label="Entrer vôtre mot de passe"
+        label="Entrer votre mot de passe"
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
         @click:append-inner="visible = !visible"

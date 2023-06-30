@@ -42,7 +42,7 @@
             <v-col cols="12">
               <v-text-field
                 v-model="user.password"
-                label="Password*"
+                label="Mot de passe*"
                 outlined
                 required
                 type="password"
@@ -78,7 +78,7 @@
             </v-col>
           </v-row>
         </v-container>
-        <small>*indicates required field</small>
+        <small>*Champ requis</small>
       </v-card-text>
       <v-card-actions>
         <v-btn @click="updateProfil"> Sauvegarder</v-btn>

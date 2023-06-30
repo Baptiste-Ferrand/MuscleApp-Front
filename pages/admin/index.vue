@@ -11,7 +11,7 @@
       <v-col cols="12" sm="12">
         <v-text-field
           v-model="exo.difficulty"
-          label="Difficulter Exercice (0-10)"
+          label="Difficulté Exercice (0-10)"
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="12">

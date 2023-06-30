@@ -36,10 +36,10 @@ export default {
         {name: 'Biceps', img: require('../assets/img/corp-humains/biceps.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein',id: 1},
         {name: 'Triceps', img: require('../assets/img/corp-humains/triceps.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein',id: 2},
         {name: 'Avant Bras', img: require('../assets/img/corp-humains/avbras.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 3},
-        {name: 'Ishio', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 4},
+        {name: 'Ischio', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 4},
         {name: 'Quadriceps', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 5},
         {name: 'Mollet', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein',  id: 6},
-        {name: 'Pec', img: require('../assets/img/corp-humains/pec.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 7},
+        {name: 'Pectoraux', img: require('../assets/img/corp-humains/pec.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 7},
         {name: 'Epaule', img: require('../assets/img/corp-humains/epaule.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 8},
         {name: 'Dos', img: require('../assets/img/corp-humains/dos.png'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 9},
         {name: 'Abdos', img: require('url'), desc:'petite description du muscle vite fait t\'a vue pas plus hein', id: 10 }
@@ -58,7 +58,7 @@ export default {
         case 'Avant Bras':
           this.$router.push('/corps-humains/avant-bras')
           break
-        case 'Ishio':
+        case 'Ischio':
           this.$router.push('/corps-humains/ishio')
           break
         case 'Quadriceps':
@@ -67,7 +67,7 @@ export default {
         case 'Mollet':
           this.$router.push('/corps-humains/mollet')
           break
-        case 'Pec':
+        case 'Pectoraux':
           this.$router.push('/corps-humains/pec')
           break
         case 'Epaule':
