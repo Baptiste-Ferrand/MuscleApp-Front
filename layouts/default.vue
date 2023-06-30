@@ -52,22 +52,22 @@ export default {
       items: [
         {
           icon: 'mdi-home-heart',
-          title: 'Welcome',
+          title: "Vue d'ensemble",
           to: '/',
         },
         {
           icon: 'mdi-format-list-numbered',
-          title: 'list exos',
+          title: 'Exercices',
           to: '/list-exos',
         },
         {
           icon: 'mdi-arm-flex',
-          title: 'corps humain',
+          title: 'Morphologie',
           to: '/corps-humain',
         },
         {
           icon: 'mdi-clipboard-edit',
-          title: 'cree workout',
+          title: 'Entraînement',
           to: '/cree-workout',
         },
         {

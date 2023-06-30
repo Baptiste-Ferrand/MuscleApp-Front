@@ -19,12 +19,12 @@
       max-width="448"
       rounded="lg"
     >
-      <div class="text-subtitle-1 text-medium-emphasis">Compte</div>
+      <div class="text-subtitle-1 text-medium-emphasis">Connection</div>
 
       <v-text-field
         v-model="user.email"
         density="compact"
-        label="Adress Email"
+        label="Adresse Email"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
       ></v-text-field>
@@ -40,7 +40,7 @@
         :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
         :type="visible ? 'text' : 'password'"
         density="compact"
-        label="Entrer vôtre mot de passe"
+        label="Entrer votre mot de passe"
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
         @click:append-inner="visible = !visible"
@@ -49,8 +49,7 @@
       <v-card class="mb-12" color="surface-variant" variant="tonal">
         <v-card-text class="text-medium-emphasis text-caption">
           Avertissement : Après trois échecs consécutifs, votre compte sera
-          temporairement bloqué pendant trois heures. sera temporairement bloqué
-          pendant trois heures. Si vous devez vous connecter maintenant, vous
+          temporairement bloqué pendant trois heures. Si vous devez vous connecter maintenant, vous
           pouvez également cliquer sur "Mot de passe oublié" ci-dessous pour
           réinitialiser le mot de passe.
         </v-card-text>

@@ -34,14 +34,14 @@ export default {
           textStyle: {
             color: 'white',
           },
-          text: 'Graphique Evolution De Vôtre Poids',
+          text: 'Evolution',
           top: 10,
           left: 'center',
         },
         toolbox: {
           feature: {
             restore: {
-              title: 'Restaurée zoom',
+              title: 'Restaurer zoom',
             },
             saveAsImage: {
               title: 'Sauvegarder en PNG',
