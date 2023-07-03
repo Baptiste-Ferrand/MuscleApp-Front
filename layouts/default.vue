@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="mt-8 mb-10">
     <v-navigation-drawer
       v-model="drawer"
       :clipped="true"
@@ -87,5 +87,9 @@ export default {
 <style>
 .background {
   background: #0a0a14;
+}
+
+body {
+  background-color: #0a0a14;
 }
 </style>
