@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="mt-8 mb-10">
     <v-navigation-drawer
       v-model="drawer"
       :clipped="true"

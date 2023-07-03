@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card">
+  <v-card class="card" style="border: 1px solid darkgreen">
     <v-card-title>{{ title }}</v-card-title>
     <v-card-subtitle>{{ subtitle }}</v-card-subtitle>
   </v-card>
@@ -28,8 +28,6 @@ v-card-subtitle {
 
 .card {
   align-content: center;
-  height: 20%;
-  width: 25%;
   border-radius: 25px;
   background: radial-gradient(#000000, #2c5a57);
 }
