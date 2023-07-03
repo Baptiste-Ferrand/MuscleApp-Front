@@ -88,4 +88,8 @@ export default {
 .background {
   background: #0a0a14;
 }
+
+body {
+  background-color: #0a0a14;
+}
 </style>

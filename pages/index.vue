@@ -9,13 +9,13 @@
       </v-col>
       <v-col cols="12" lg="3">
         <weight-card
-          :subtitle="parseInt(user.actual_weight)"
+          :subtitle="parseInt(user.actual_weight.toFixed(1))"
           title="Poids Actuel"
         />
       </v-col>
       <v-col cols="12" lg="3">
         <weight-card
-          :subtitle="parseInt(user.last_weight)"
+          :subtitle="parseInt(user.last_weight.toFixed(1))"
           title="Poids Final"
         />
       </v-col>
@@ -26,25 +26,22 @@
     <graph-stats-weight />
     <v-spacer class="mb-10"></v-spacer>
     <v-sheet class="mx-auto" elevation="8" max-width="800">
-      <v-slide-group active-class="success" class="pa-4" show-arrows>
-        <v-slide-item
-          v-for="item of user.seance"
-          :key="item.id"
-          v-slot="{ active }"
-        >
+      <v-slide-group
+        active-class="success"
+        class="pa-4"
+        show-arrows
+        style="background: #0a0a14"
+      >
+        <v-slide-item v-for="item of user.seance" :key="item.id">
           <v-card
-            :color="active ? undefined : 'grey lighten-1'"
-            class="ma-4"
+            class="ma-4 seance"
             height="200"
-            width="100"
+            style="border: 1px solid darkgreen"
+            width="200"
             @click="seeSeance(item)"
           >
             <v-card-title>{{ item.title }}</v-card-title>
-            <v-row align="center" class="fill-height" justify="center">
-              <v-scale-transition>
-                <v-icon v-if="active" color="white" size="48"></v-icon>
-              </v-scale-transition>
-            </v-row>
+            <v-card-text>{{ item.description }}</v-card-text>
           </v-card>
         </v-slide-item>
       </v-slide-group>
@@ -108,6 +105,11 @@ export default {
     await this.$axios.get('weight/initial').then((response) => {
       this.user.first_weight = response.data.value
     })
+
+    await this.$axios.get('session').then((response) => {
+      this.user.seance = response.data
+    })
+
     await this.$axios.get('weight/latest').then((response) => {
       this.user.actual_weight = response.data.value
     })
@@ -119,14 +121,9 @@ export default {
     await this.$axios.get('weight/latest').then((response) => {
       this.user.actual_weight = response.data.value
     })
-
-    await this.$axios.get('session').then((response) => {
-      this.user.seance = response.data
-    })
   },
   methods: {
     seeSeance(item) {
-      console.log(item)
       this.select_seance = item
       this.show_seance = true
     },
@@ -135,12 +132,9 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  display: flex;
-  margin-left: 25px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  margin-top: 20px;
+.seance {
+  background: radial-gradient(#000000, #2c5a57);
+  border-radius: 10px;
+  align-content: center;
 }
 </style>
