@@ -118,7 +118,7 @@ export default {
     }
   },
   async fetch() {
-    await this.$axios.get('user').then((response) => {
+    await this.$axios.get('user/').then((response) => {
       this.user.id = response.data.id
       this.user.name = response.data.name
       this.user.surname = response.data.surname
@@ -129,7 +129,7 @@ export default {
       this.user.first_weight = response.data.value
     })
 
-    await this.$axios.get('objective').then((response) => {
+    await this.$axios.get('objective/').then((response) => {
       this.user.objectif = response.data[0].title
       this.user.last_weight = response.data[0].weight
       this.objectif_id = response.data[0].id

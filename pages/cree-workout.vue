@@ -182,7 +182,7 @@ export default {
     async creatSeance() {
       this.seance.exercises = this.temp_exercices
       try {
-        await this.$axios.$post('session', this.seance)
+        await this.$axios.$post('session/', this.seance)
         this.seance.title = ''
         this.seance.description = ''
         this.seance.exercises = []
