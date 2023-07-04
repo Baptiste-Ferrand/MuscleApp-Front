@@ -83,6 +83,9 @@
       >
         Log In
       </v-btn>
+      <nuxt-link class="d-flex justify-center" to="login"
+        >Déjà inscrit ? Connectez-vous
+      </nuxt-link>
     </v-card>
   </div>
 </template>
