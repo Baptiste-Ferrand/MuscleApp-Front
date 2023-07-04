@@ -1,5 +1,5 @@
 <template>
-  <v-app class="bakcground">
+  <v-app class="background">
     <v-main>
       <v-container>
         <Nuxt />
@@ -16,12 +16,11 @@ export default {
 </script>
 
 <style scoped>
-.bakcground {
-  /*background: radial-gradient(#000000, #040815);*/
+.background {
   background: rgba(0, 0, 10, 0.96);
 }
 
 body {
-  background-color: #f61111;
+  background: rgba(0, 0, 10, 0.96);
 }
 </style>

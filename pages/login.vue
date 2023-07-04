@@ -49,9 +49,9 @@
       <v-card class="mb-12" color="surface-variant" variant="tonal">
         <v-card-text class="text-medium-emphasis text-caption">
           Avertissement : Après trois échecs consécutifs, votre compte sera
-          temporairement bloqué pendant trois heures. Si vous devez vous connecter maintenant, vous
-          pouvez également cliquer sur "Mot de passe oublié" ci-dessous pour
-          réinitialiser le mot de passe.
+          temporairement bloqué pendant trois heures. Si vous devez vous
+          connecter maintenant, vous pouvez également cliquer sur "Mot de passe
+          oublié" ci-dessous pour réinitialiser le mot de passe.
         </v-card-text>
       </v-card>
 
@@ -67,10 +67,7 @@
       </v-btn>
 
       <v-card-text class="text-center" @click="gotoRegister">
-        <a class="text-blue text-decoration-none">
-          Créer un compte
-          <v-icon icon="mdi-chevron-right"></v-icon>
-        </a>
+        <nuxt-link to="register">Créer un compte</nuxt-link>
       </v-card-text>
     </v-card>
   </div>
