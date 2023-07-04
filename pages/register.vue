@@ -81,7 +81,7 @@
         variant="tonal"
         @click="gotoLogin"
       >
-        Log In
+        Créer un compte
       </v-btn>
       <nuxt-link class="d-flex justify-center" to="login"
         >Déjà inscrit ? Connectez-vous
@@ -104,7 +104,7 @@ export default {
       emailRules: [
         (v) => !!v || 'E-mail is required',
         (v) =>
-          /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\].,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
             v
           ) || 'E-mail dois être sous la forme suivante : example@mail.com',
       ],
