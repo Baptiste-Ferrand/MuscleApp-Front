@@ -44,7 +44,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.BASE_URL || 'http://localhost:8080/',
+    baseURL:'http://135.125.236.23:8080/',
   },
 
   auth: {
@@ -61,7 +61,8 @@ export default {
             method: 'post',
             propertyName: 'token',
           },
-          user: { url: '/user', method: 'get', propertyName: '' },
+          user: false,
+          // user: { url: '/user', method: 'get', propertyName: '' },
           tokenRequired: true,
           tokenType: 'Bearer',
         },
