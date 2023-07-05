@@ -141,7 +141,7 @@ export default {
   methods: {
     async gotoLogin() {
       try {
-        await this.$axios.post('user', this.user).then((response) => {
+        await this.$axios.post('user/', this.user).then((response) => {
           if (response) {
             this.$router.push('/login')
           }
