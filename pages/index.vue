@@ -113,7 +113,7 @@ export default {
     await this.$axios.get('weight/latest').then((response) => {
       this.user.actual_weight = response.data.value
     })
-    await this.$axios.get('objective').then((response) => {
+    await this.$axios.get('objective/').then((response) => {
       this.user.objectif = response.data[0].title
       this.user.last_weight = response.data[0].weight
     })

@@ -142,7 +142,7 @@ export default {
         value: parseInt(this.user.actual_weight),
       }
       try {
-        await this.$axios.post('weight', data)
+        await this.$axios.post('weight/', data)
       } catch (e) {
         console.log(e)
       }
