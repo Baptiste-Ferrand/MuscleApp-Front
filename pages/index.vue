@@ -106,7 +106,7 @@ export default {
       this.user.first_weight = response.data.value
     })
 
-    await this.$axios.get('/').then((response) => {
+    await this.$axios.get('session/').then((response) => {
       this.user.seance = response.data
     })
 

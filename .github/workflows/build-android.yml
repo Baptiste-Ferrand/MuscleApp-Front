@@ -32,7 +32,7 @@ jobs:
           node-version: 20.x
 
       - name: install dependencies
-        run: npm install -g npm && npm install
+        run: npm install -g npm && npm install && npm install @capacitor/cli @capacitor/android @capacitor/ios @capacitor/core
 
       - name: Create Build Folder
         run: npm run generate
@@ -41,7 +41,7 @@ jobs:
         run: if [ ! -d "./android" ]; then npx cap add android; fi
 
       - name: Capacitor update
-        run: npx cap update
+        run: npx cap sync android && npx cap update
 
       - name: Capacitor copy
         run: npx cap copy
@@ -83,4 +83,4 @@ jobs:
           -a ./android/app/build/outputs/bundle/release/app-release-signed.aab \
           -a ./android/app/build/outputs/apk/debug/app-debug.apk
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
