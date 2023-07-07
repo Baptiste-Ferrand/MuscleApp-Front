@@ -56,7 +56,7 @@ export default {
       this.exo.difficulty = parseInt(this.exo.difficulty)
       try {
         await this.$axios
-          .post('exercise', this.exo)
+          .post('exercise/', this.exo)
           .then(
             (this.exo.title = ''),
             (this.exo.description = ''),
