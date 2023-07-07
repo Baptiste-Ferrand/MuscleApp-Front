@@ -62,7 +62,7 @@ export default {
     }
   },
   async fetch() {
-    await this.$axios.get('exercise/some/999').then((response) => {
+    await this.$axios.get('exercise/some/9999').then((response) => {
       this.items = response.data
     })
   },
