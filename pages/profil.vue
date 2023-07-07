@@ -166,12 +166,12 @@ export default {
           description: 'a',
           date: 0,
         }
-        await this.$axios.put('user', user)
+        await this.$axios.put('user/', user)
 
         if (this.objectif_id !== 0) {
           await this.$axios.put('objective/' + this.objectif_id, objectif)
         } else {
-          await this.$axios.post('objective', objectif)
+          await this.$axios.post('objective/', objectif)
         }
       } catch (e) {
         console.log(e)
