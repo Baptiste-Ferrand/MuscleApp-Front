@@ -38,5 +38,5 @@ API_PORT is the port on which the API will be available. So when you will make a
 ## Build Setup
 
 ```bash
-$ docker compose pull && docker compose up
+docker compose pull && docker compose up
 ```
