@@ -14,9 +14,9 @@ services:
             MYSQL_PASSWORD: ${DB_PASSWORD}
       # Password for root access
             MYSQL_ROOT_PASSWORD: password
-        ports:
+        #ports:
       # <Port exposed> : <MySQL Port running inside container>
-            - 3306:3306
+         #   - 3306:3306
         expose:
       # Opens port 3306 on the container
             - '3306'
@@ -26,6 +26,7 @@ services:
 
     api:
         image: ghcr.io/kilianp07/muscleapp:latest
+        restart: always
         #build:
         #    context: .
         #    dockerfile: Dockerfile
@@ -45,11 +46,12 @@ services:
 
     web:
       image: ghcr.io/baptiste-ferrand/muscleapp-front:latest
+      restart: always
       #build:
       #    context: .
       #    dockerfile: Dockerfile
       ports:
-        - 3000:3000
+        - 80:3000
       environment:
         - BASE_URL=api:8080/
 # Names our volume
